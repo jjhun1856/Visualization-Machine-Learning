@@ -1,0 +1,34 @@
+<div id="wrapper">
+  <header id="header">
+    <h1 class="title">Linear Regression</h1>
+  </header>
+
+  <section id="main">
+    <section class="thumbnails">
+      <div class="code">
+        <div *ngFor="let cd of codeArray; let i = index">
+          <span [id]="'code' + i" [innerText]="cd + '\n'"></span>
+        </div>
+      </div>
+
+      <div class="flowchart">
+        <svg id="flowchart" class="svg"></svg>
+
+        <div class="button">
+          <button (click)="test()">test</button>
+          <button (click)="clear()">clear</button>
+        </div>
+      </div>
+
+      <div class="vis">
+        <img id="vis-result"/>
+      </div>
+    </section>
+  </section>
+
+
+  <footer id="footer">
+    <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a
+      href="http://unsplash.com">Unsplash</a>.</p>
+  </footer>
+</div>

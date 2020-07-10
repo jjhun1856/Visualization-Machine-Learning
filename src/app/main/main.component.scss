@@ -1,0 +1,10 @@
+a {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+
+  img {
+    pointer-events: none;
+  }
+}
