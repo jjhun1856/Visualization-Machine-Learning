@@ -27,4 +27,42 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
   }
+
+  .add-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+
+    input {
+      background-color: rgba(255, 255, 255, 0.35);
+      color: black;
+    }
+  }
+
+  .predict {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+
+    input {
+      background-color: rgba(255, 255, 255, 0.35);
+      color: black;
+    }
+  }
+
+  .prediction {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+input {
+  color: black;
 }

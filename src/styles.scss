@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/css/templete";
+
+#tfjs-visor-container {
+  a, div, span, th {
+    color: black;
+  }
+
+  button {
+    line-height: unset;
+  }
+}

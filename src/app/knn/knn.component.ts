@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+// import * as tf from '@tensorflow/tfjs';
 
 @Component({
   selector: 'app-knn',
@@ -28,7 +29,9 @@ export class KnnComponent implements OnInit {
 
   canvas: any;
 
-  constructor() {
+  constructor(
+    // private tensorFlowJs
+  ) {
   }
 
   ngOnInit(): void {

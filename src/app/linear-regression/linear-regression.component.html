@@ -1,6 +1,8 @@
 <div id="wrapper">
   <header id="header">
-    <h1 class="title">Linear Regression</h1>
+    <h1 class="title" [routerLink]="'/'">Linear Regression</h1>
+<!--    <span>{{prediction}}</span>-->
+<!--    <input style="color: black" type="number" (change)="predict($event.target.value)"/>-->
   </header>
 
   <section id="main">
@@ -12,6 +14,24 @@
       </div>
 
       <div class="flowchart">
+        <span>predict Data</span>
+        <div class="predict">
+          <input id="predict-input" type="text" placeholder="input x" [(ngModel)]="predictX"/>
+          <button (click)="predict()">predict</button>
+        </div>
+
+        <div class="prediction">
+          <span>output Prediction : </span>
+          <span>{{prediction}}</span>
+        </div>
+
+        <span>add Data</span>
+        <div class="add-input">
+          <input id="input-x" type="text" placeholder="input x" [(ngModel)]="inputX"/>
+          <input id="input-y" type="text" placeholder="input y" [(ngModel)]="inputY"/>
+          <button (click)="add()">add</button>
+        </div>
+
         <svg id="flowchart" class="svg"></svg>
 
         <div class="button">
@@ -22,6 +42,10 @@
 
       <div class="vis">
         <img id="vis-result"/>
+
+        <div id="scatterplot-tfjs">
+
+        </div>
       </div>
     </section>
   </section>

@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import * as tf from '@tensorflow/tfjs';
+import * as tfvis from '@tensorflow/tfjs-vis';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-linear-regression',
@@ -6,6 +9,31 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./linear-regression.component.scss']
 })
 export class LinearRegressionComponent implements OnInit {
+
+  vis: any;
+  visor: any;
+
+  linearModel: tf.Sequential;
+  prediction: any;
+
+  arr_x: number[];
+  arr_y: any;
+  x: any;
+  y: any;
+
+  inputX: number;
+  inputY: number;
+  predictX: number;
+
+  arrayData: any;
+
+  sumX: number = 0;
+  sumY: number = 0;
+  sumX2: number = 0;
+  sumXY: number = 0;
+
+  a: number = 0;
+  b: number = 0;
 
   code: string =
     'Read number of data N\n' +
@@ -38,9 +66,15 @@ export class LinearRegressionComponent implements OnInit {
   canvas: any;
 
   constructor() {
+    this.arr_x = [-1, -2, 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 4, 5, 6];
+    this.arr_y = [-1, -2, -1, 1, 1, 0, 2, 3, 1, 3, 2, 4, 3, 6, 5];
+
+    this.arrayData = [];
   }
 
   ngOnInit(): void {
+    this.train();
+
     this.codeArray = this.code.split('\n');
 
     this.canvas = document.getElementById('flowchart');
@@ -307,9 +341,12 @@ export class LinearRegressionComponent implements OnInit {
   test() {
     this.clear();
 
+    this.vis = tfvis;
+    this.visor = this.vis.visor();
+
     document.getElementById('code0').style.backgroundColor = 'yellow';
     document.getElementById('rect-1').setAttributeNS(null, 'fill', 'yellow');
-    document.getElementById('vis-result').setAttribute('src', '../../assets/result-img/Linear Regression-Result-1.png');
+    // document.getElementById('vis-result').setAttribute('src', '../../assets/result-img/Linear Regression-Result-1.png');
 
     setTimeout(() => {
       document.getElementById('code0').style.backgroundColor = 'rgba(255, 255, 255, 0)';
@@ -319,132 +356,143 @@ export class LinearRegressionComponent implements OnInit {
       document.getElementById('rect-2').setAttributeNS(null, 'fill', 'yellow');
 
       setTimeout(() => {
-        document.getElementById('code1').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+        const xyTable = this.visor.surface({name: 'Training data', tab: 'Datas'});
+        let delay = 0;
 
-        document.getElementById('code2').style.backgroundColor = 'yellow';
+        this.arr_x.forEach((x, i) => {
+          setTimeout(() => {
+            document.getElementById('code1').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            this.arrayData.push([x, this.arr_y[i]]);
+            this.vis.render.table(xyTable, {headers: ['x', 'y'], values: this.arrayData});
+            document.getElementById('code2').style.backgroundColor = 'yellow';
+            document.getElementById('code3').style.backgroundColor = 'yellow';
+            document.getElementById('code4').style.backgroundColor = 'yellow';
+          }, 500 + delay);
+          delay += 500;
+        });
 
         setTimeout(() => {
-          document.getElementById('code2').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+          let zip = (arr1, arr2) => {
+            return arr1.map((x, i) => {
+              return {'x': x, 'y': arr2[i]};
+            });
+          };
+          const toy_data = zip(this.arr_x, this.arr_y);
 
-          document.getElementById('code3').style.backgroundColor = 'yellow';
+          const label = 'toy data';
+
+          let data = {values: [toy_data], series: [label]};
+          const container = $('#scatter-tfjs')[0];
+          this.vis.render.scatterplot(container, data, {width: 500, height: 400});
+
+          const surface = tfvis.visor().surface({name: 'Scatterplot-tfjs', tab: 'Charts'});
+          this.vis.render.scatterplot(surface, data);
 
           setTimeout(() => {
+            document.getElementById('code2').style.backgroundColor = 'rgba(255, 255, 255, 0)';
             document.getElementById('code3').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            document.getElementById('code4').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+            document.getElementById('rect-2').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-            document.getElementById('code4').style.backgroundColor = 'yellow';
+            let sumDataTable = (x, y, x2, xy) => {
+              return [x, y, x2, xy];
+            };
+
+            let sumTableData = sumDataTable(this.sumX, this.sumY, this.sumX2, this.sumXY);
+            console.log(sumTableData);
+
+            const sumTable = tfvis.visor().surface({name: 'Sum Table', tab: 'Tables'});
+            this.vis.render.table(sumTable, {headers: ['SumX', 'SumY', 'SumX2', 'SumXY'], values: [sumTableData]});
+
+            document.getElementById('code6').style.backgroundColor = 'yellow';
+            document.getElementById('code7').style.backgroundColor = 'yellow';
+            document.getElementById('code8').style.backgroundColor = 'yellow';
+            document.getElementById('rect-3').setAttributeNS(null, 'fill', 'yellow');
 
             setTimeout(() => {
-              document.getElementById('code4').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+              document.getElementById('code6').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+              document.getElementById('code7').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+              document.getElementById('code8').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+              document.getElementById('rect-3').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-              document.getElementById('code3').style.backgroundColor = 'yellow';
+              document.getElementById('code10').style.backgroundColor = 'yellow';
+              document.getElementById('rect-4').setAttributeNS(null, 'fill', 'yellow');
 
               setTimeout(() => {
-                document.getElementById('code3').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                let offset = 0;
 
-                document.getElementById('code4').style.backgroundColor = 'yellow';
+                this.arrayData.forEach(x => {
+                  setTimeout(() => {
+                    document.getElementById('code10').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                    this.sumX += x[0];
+                    this.sumY += x[1];
+                    this.sumX2 += x[0] * x[0];
+                    this.sumXY += x[0] * x[1];
+                    sumTableData = sumDataTable(this.sumX, this.sumY, this.sumX2, this.sumXY);
+                    this.vis.render.table(sumTable, {headers: ['SumX', 'SumY', 'SumX2', 'SumXY'], values: [sumTableData]});
+                    document.getElementById('code11').style.backgroundColor = 'yellow';
+                    document.getElementById('code12').style.backgroundColor = 'yellow';
+                    document.getElementById('code13').style.backgroundColor = 'yellow';
+                    document.getElementById('code14').style.backgroundColor = 'yellow';
+                    document.getElementById('code15').style.backgroundColor = 'yellow';
+                    document.getElementById('code16').style.backgroundColor = 'yellow';
+                  }, 500 + offset);
+                  offset += 500;
+                });
 
                 setTimeout(() => {
-                  document.getElementById('code4').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                  document.getElementById('rect-2').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
+                  document.getElementById('code11').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('code12').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('code13').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('code14').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('code15').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('code16').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                  document.getElementById('rect-4').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-                  document.getElementById('code6').style.backgroundColor = 'yellow';
-                  document.getElementById('code7').style.backgroundColor = 'yellow';
-                  document.getElementById('code8').style.backgroundColor = 'yellow';
-                  document.getElementById('rect-3').setAttributeNS(null, 'fill', 'yellow');
+                  document.getElementById('code18').style.backgroundColor = 'yellow';
+                  document.getElementById('rect-5').setAttributeNS(null, 'fill', 'yellow');
 
                   setTimeout(() => {
-                    document.getElementById('code6').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                    document.getElementById('code7').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                    document.getElementById('code8').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                    document.getElementById('rect-3').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
+                    document.getElementById('code18').style.backgroundColor = 'rgba(255, 255, 255, 0)';
 
-                    document.getElementById('code10').style.backgroundColor = 'yellow';
-                    document.getElementById('rect-4').setAttributeNS(null, 'fill', 'yellow');
+                    this.a = (this.arrayData.length * this.sumXY - this.sumX * this.sumY) / (this.arrayData.length * this.sumX2 - this.sumX * this.sumX);
+                    this.b = (this.sumY - this.a * this.sumX) / this.arrayData.length;
+
+                    let resultDataTable = (a, b) => {
+                      return [a, b];
+                    };
+
+                    const resultTableData = resultDataTable(this.a, this.b);
+
+                    const resultTable = tfvis.visor().surface({name: 'result Table', tab: 'Tables'});
+                    this.vis.render.table(resultTable, {headers: ['a', 'b'], values: [resultTableData]});
+
+                    document.getElementById('code19').style.backgroundColor = 'yellow';
+                    document.getElementById('code20').style.backgroundColor = 'yellow';
 
                     setTimeout(() => {
-                      document.getElementById('code10').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                      document.getElementById('code19').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                      document.getElementById('code20').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                      document.getElementById('rect-5').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-                      document.getElementById('code11').style.backgroundColor = 'yellow';
+                      document.getElementById('code22').style.backgroundColor = 'yellow';
+                      document.getElementById('rect-6').setAttributeNS(null, 'fill', 'yellow');
 
                       setTimeout(() => {
-                        document.getElementById('code11').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                        document.getElementById('code22').style.backgroundColor = 'rgba(255, 255, 255, 0)';
+                        document.getElementById('rect-6').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-                        document.getElementById('code12').style.backgroundColor = 'yellow';
-                        document.getElementById('code13').style.backgroundColor = 'yellow';
-                        document.getElementById('code14').style.backgroundColor = 'yellow';
-                        document.getElementById('code15').style.backgroundColor = 'yellow';
-
-                        setTimeout(() => {
-                          document.getElementById('code12').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                          document.getElementById('code13').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                          document.getElementById('code14').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                          document.getElementById('code15').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-                          document.getElementById('code16').style.backgroundColor = 'yellow';
-
-                          setTimeout(() => {
-                            document.getElementById('code16').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-                            document.getElementById('code12').style.backgroundColor = 'yellow';
-                            document.getElementById('code13').style.backgroundColor = 'yellow';
-                            document.getElementById('code14').style.backgroundColor = 'yellow';
-                            document.getElementById('code15').style.backgroundColor = 'yellow';
-
-                            setTimeout(() => {
-                              document.getElementById('code12').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                              document.getElementById('code13').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                              document.getElementById('code14').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                              document.getElementById('code15').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-                              document.getElementById('code16').style.backgroundColor = 'yellow';
-
-                              setTimeout(() => {
-                                document.getElementById('code16').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                                document.getElementById('rect-4').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
-
-                                document.getElementById('code18').style.backgroundColor = 'yellow';
-                                document.getElementById('rect-5').setAttributeNS(null, 'fill', 'yellow');
-
-                                setTimeout(() => {
-                                  document.getElementById('code18').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-                                  document.getElementById('code19').style.backgroundColor = 'yellow';
-
-                                  setTimeout(() => {
-                                    document.getElementById('code19').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-
-                                    document.getElementById('code20').style.backgroundColor = 'yellow';
-
-                                    setTimeout(() => {
-                                      document.getElementById('code20').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                                      document.getElementById('rect-5').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
-
-                                      document.getElementById('code22').style.backgroundColor = 'yellow';
-                                      document.getElementById('rect-6').setAttributeNS(null, 'fill', 'yellow');
-
-                                      setTimeout(() => {
-                                        document.getElementById('code22').style.backgroundColor = 'rgba(255, 255, 255, 0)';
-                                        document.getElementById('rect-6').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
-
-                                        document.getElementById('code23').style.backgroundColor = 'yellow';
-                                        document.getElementById('rect-7').setAttributeNS(null, 'fill', 'yellow');
-                                        document.getElementById('vis-result').setAttribute('src', '../../assets/result-img/Linear Regression-Result-2.png');
-                                      }, 500);
-                                    }, 500);
-                                  }, 500);
-                                }, 500);
-                              }, 500);
-                            }, 500);
-                          }, 500);
-                        }, 500);
+                        document.getElementById('code23').style.backgroundColor = 'yellow';
+                        document.getElementById('rect-7').setAttributeNS(null, 'fill', 'yellow');
+                        // document.getElementById('vis-result').setAttribute('src', '../../assets/result-img/Linear Regression-Result-2.png');
                       }, 500);
                     }, 500);
                   }, 500);
-                }, 500);
+                }, 500 * this.arrayData.length + 500);
               }, 500);
             }, 500);
-          }, 500);
-        }, 500);
+          }, 1000);
+        }, 500 * this.arr_x.length + 500);
       }, 500);
     }, 500);
   }
@@ -462,6 +510,53 @@ export class LinearRegressionComponent implements OnInit {
     document.getElementById('rect-6').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
     document.getElementById('rect-7').setAttributeNS(null, 'fill', 'rgba(255, 255, 255, 0.65)');
 
-    document.getElementById('vis-result').setAttribute('src', '');
+    // document.getElementById('vis-result').setAttribute('src', '');
+
+    this.arrayData = [];
+    this.sumX = 0;
+    this.sumY = 0;
+    this.sumX2 = 0;
+    this.sumXY = 0;
+    this.a = 0;
+    this.b = 0;
+
+    this.visClear();
+  }
+
+  visClear() {
+    // this.vis = null;
+    // this.visor = null;
+    if (document.getElementById('tfjs-visor-container')) {
+      document.getElementById('tfjs-visor-container').remove();
+    }
+  }
+
+  async train(): Promise<any> {
+    this.linearModel = tf.sequential();
+    this.linearModel.add(tf.layers.dense({units: 1, inputShape: [1]}));
+
+    this.linearModel.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+
+    const xs = this.arr_x as any;
+    const ys = this.arr_y;
+
+    await this.linearModel.fit(xs, ys);
+  }
+
+  // predict(val: number) {
+  //   const output = this.linearModel.predict(tf.tensor2d([Number(val)], [1, 1])) as any;
+  //   this.prediction = Array.from(output.dataSync())[0];
+  // }
+
+  predict() {
+    const output = this.linearModel.predict(tf.tensor2d([Number(this.predictX)], [1, 1])) as any;
+    this.prediction = Array.from(output.dataSync())[0];
+  }
+
+  add() {
+    this.arr_x.push(Number(this.inputX));
+    this.arr_y.push(Number(this.inputY));
+    console.log(this.arr_x);
+    console.log(this.arr_y);
   }
 }
