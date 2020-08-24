@@ -18,9 +18,21 @@
     margin-top: 12px;
     font-size: 20px;
     text-align: center;
+    word-break: keep-all;
+  }
+
+  .log {
+    margin-top: 8px;
   }
 
   .image {
     margin-top: 20px;
+  }
+
+  .image-size {
+    margin-top: 40px;
+    width: 840px;
+    height: auto;
+    object-fit: cover;
   }
 }

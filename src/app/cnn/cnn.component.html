@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <header id="header">
+        <div fxLayout="row">
+            <a class="btn-back" [routerLink]="['/']">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </a>
+        </div>
+
+        <h1 class="title">Convolutional Neural Networks</h1>
+    </header>
+
+    <section id="main">
+        <div class="description">
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;CNN알고리즘은 Convolutional Neural Networks, 즉, 합성곱 신경망으로 딥러닝 알고리즘 중 하나이다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;합성곱 신경망은 크게 특징을 추출하는 Feature Extraction 부분과 추출된 특징을 바탕으로 분류하는 Classification으로
+                나눠진다.<br>
+                <br>
+                <!--                &nbsp;특징:<br>-->
+                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>-->
+                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>-->
+                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.-->
+            </p>
+        </div>
+
+        <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+            <div fxLayout="column">
+                <img src="assets/result-img/cnn/CNN.png"/>
+
+                <div class="btn-step" fxLayout="row">
+                    <button (click)="OpenDetailDialog(1)">Step 1</button>
+
+                    <div fxLayout="column">
+                        <div fxLayout="row">
+                            <div fxLayout="column">
+                                <button (click)="OpenDetailDialog(2)">Step 2</button>
+                                <button (click)="OpenDetailDialog(3)">Step 3</button>
+                            </div>
+
+                            <div fxLayout="column">
+                                <button (click)="OpenDetailDialog(4)">Step 4</button>
+                            </div>
+                        </div>
+
+                        <button (click)="OpenDetailDialog(6)">Step 6</button>
+                    </div>
+
+                    <button (click)="OpenDetailDialog(5)">Step 5</button>
+
+                    <button (click)="OpenDetailDialog(7)">Step 7</button>
+
+                    <button (click)="OpenDetailDialog(8)">Step 8</button>
+                </div>
+            </div>
+            <!--            <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값(K) 입력</span>-->
+            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--            <span (click)="OpenDetailDialog(2)">분류할 데이터(X, Y) 입력</span>-->
+            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--            <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>-->
+            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--            <span (click)="OpenDetailDialog(4)">거리가 짧은 순서로 K(K)개 만큼 선택</span>-->
+            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
+            <!--            <span (click)="OpenDetailDialog(5)">선택한 값 중 다수 값으로 분류</span>-->
+        </div>
+    </section>
+
+
+    <footer id="footer">
+        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a
+                href="http://unsplash.com">Unsplash</a>.</p>
+    </footer>
+</div>

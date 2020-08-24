@@ -5,6 +5,14 @@ a {
   -webkit-user-select: none;
 
   img {
+    width: 260px;
+    height: 240px;
+    object-fit: contain;
     pointer-events: none;
+    background-color: white;
+  }
+
+  h3 {
+    word-break: keep-all;
   }
 }

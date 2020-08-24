@@ -13,6 +13,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { DetailDialogComponent } from './detail-dialog/detail-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FadeInDirective } from './fade-in.directive';
+import { GanComponent } from './gan/gan.component';
+import { CnnComponent } from './cnn/cnn.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +23,9 @@ import { FadeInDirective } from './fade-in.directive';
         KnnComponent,
         LinearRegressionComponent,
         DetailDialogComponent,
-        FadeInDirective
+        FadeInDirective,
+        GanComponent,
+        CnnComponent
     ],
     imports: [
         BrowserModule,

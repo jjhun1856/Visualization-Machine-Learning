@@ -14,29 +14,65 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     image: string;
     private autoImageAnimation: any;
 
+    epoch: number;
+    D_loss: number;
+    G_loss: number;
+
     constructor(
         @Inject(MAT_DIALOG_DATA) private data: any,
     ) {
         this.detailData = data;
-        this.image = this.detailData.image[0];
+        // if (this.detailData.image.length > 1) {
+        //     this.image = null;
+        // } else {
+            this.image = this.detailData.image[0];
+        // }
     }
 
     ngOnInit(): void {
-        const timer = TimerObservable.create(0, 500 * (this.detailData.image.length) + 1500);
-        this.autoImageAnimation = timer.subscribe(t => {
-            this.SetImage();
-        });
+        if (this.detailData.image.length > 1) {
+            if (this.detailData.timeExpand) {
+                const timer = TimerObservable.create(0, 3000 * (this.detailData.image.length) + 3000);
+                this.autoImageAnimation = timer.subscribe(t => {
+                    this.SetImage();
+                });
+            } else {
+                const timer = TimerObservable.create(0, 500 * (this.detailData.image.length) + 1500);
+                this.autoImageAnimation = timer.subscribe(t => {
+                    this.SetImage();
+                });
+            }
+        }
     }
 
     ngOnDestroy() {
-        this.autoImageAnimation.unsubscribe();
+        if (this.detailData.image.length > 1) {
+            this.autoImageAnimation.unsubscribe();
+        }
     }
 
     SetImage() {
-        for (let i = 0; i <= this.detailData.image.length - 1; i++) {
-            setTimeout(() => {
-                this.image = this.detailData.image[i];
-            }, 500 * (i + 1));
+        if (this.detailData.logTxt) {
+            for (let i = 0; i <= this.detailData.image.length - 1; i++) {
+                setTimeout(() => {
+                    this.image = this.detailData.image[i];
+                    this.epoch = this.detailData.logTxt[i].epoch;
+                    this.D_loss = this.detailData.logTxt[i].D_loss;
+                    this.G_loss = this.detailData.logTxt[i].G_loss;
+                }, 500 * (i + 1));
+            }
+        } else if (this.detailData.timeExpand) {
+            for (let i = 0; i <= this.detailData.image.length - 1; i++) {
+                setTimeout(() => {
+                    this.image = this.detailData.image[i];
+                }, 3000 * (i + 1));
+            }
+        } else {
+            for (let i = 0; i <= this.detailData.image.length - 1; i++) {
+                setTimeout(() => {
+                    this.image = this.detailData.image[i];
+                }, 500 * (i + 1));
+            }
         }
     }
 }
