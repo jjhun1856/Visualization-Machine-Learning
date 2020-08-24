@@ -1,34 +1,63 @@
 <div id="wrapper">
-  <header id="header">
-    <h1 class="title">K-Nearest Neighbor</h1>
-  </header>
-
-  <section id="main">
-    <section class="thumbnails">
-      <div class="code">
-        <div *ngFor="let cd of codeArray; let i = index">
-          <span [id]="'code' + i" [innerText]="cd + '\n'"></span>
+    <header id="header">
+        <div fxLayout="row">
+            <a class="btn-back" [routerLink]="['/']">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </a>
         </div>
-      </div>
 
-      <div class="flowchart">
-        <svg id="flowchart" class="svg"></svg>
+        <h1 class="title">K-Nearest Neighbor</h1>
+    </header>
 
-        <div class="button">
-          <button (click)="test()">test</button>
-          <button (click)="clear()">clear</button>
+    <section id="main">
+        <div class="description">
+            <p>
+                &nbsp;&nbsp;&nbsp;&nbsp;KNN알고리즘은 K-Nearest Neighbor, 즉 k개 최근접 이웃 알고리즘으로 머신러닝 지도학슴(Supervised)의 분류(Classification)
+                알고리즘에 해당한다. 가장 간단한 머신러닝 알고리즘 중 하나이다. 입력데이터와 근접한 K개의 훈련 데이터셋(Data set) 사이에서 가장 빈번한 것으로 분류하는 알고리즘이다.<br>
+                <br>
+                &nbsp;특징:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.
+            </p>
         </div>
-      </div>
 
-      <div class="vis">
-        <img id="vis-result"/>
-      </div>
+        <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+            <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값(K) 입력</span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <span (click)="OpenDetailDialog(2)">분류할 데이터(X, Y) 입력</span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <span (click)="OpenDetailDialog(4)">거리가 짧은 순서로 K(K)개 만큼 선택</span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            <span (click)="OpenDetailDialog(5)">선택한 값 중 다수 값으로 분류</span>
+        </div>
+        <!--        <section class="thumbnails">-->
+        <!--            <div class="code">-->
+        <!--                <div *ngFor="let cd of codeArray; let i = index">-->
+        <!--                    <span [id]="'code' + i" [innerText]="cd + '\n'"></span>-->
+        <!--                </div>-->
+        <!--            </div>-->
+
+        <!--            <div class="flowchart">-->
+        <!--                <svg id="flowchart" class="svg"></svg>-->
+
+        <!--                <div class="button">-->
+        <!--                    <button (click)="test()">test</button>-->
+        <!--                    <button (click)="clear()">clear</button>-->
+        <!--                </div>-->
+        <!--            </div>-->
+
+        <!--            <div class="vis">-->
+        <!--                <img id="vis-result"/>-->
+        <!--            </div>-->
+        <!--        </section>-->
     </section>
-  </section>
 
 
-  <footer id="footer">
-    <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a
-      href="http://unsplash.com">Unsplash</a>.</p>
-  </footer>
+    <footer id="footer">
+        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a
+                href="http://unsplash.com">Unsplash</a>.</p>
+    </footer>
 </div>
