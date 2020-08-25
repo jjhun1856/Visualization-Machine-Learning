@@ -10,46 +10,57 @@
     </header>
 
     <section id="main">
+        <h2>1. Abstraction : </h2>
         <div class="description">
             <p>
                 &nbsp;&nbsp;CNN알고리즘은 Convolutional Neural Networks, 즉, 합성곱 신경망으로 딥러닝 알고리즘 중 하나이다.<br>
                 &nbsp;&nbsp;합성곱 신경망은 기존 이미지 분류 알고리즘인 전결합층 인공신경망의 단점을 극복하기 위해 제안되었다.<br>
                 &nbsp;&nbsp;특징을 추출하는 Feature Extraction 부분과 추출된 특징을 바탕으로 분류하는 Classification으로 나눠진다.<br>
                 <br>
-                <!--                &nbsp;특징:<br>-->
-                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>-->
-                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>-->
-                <!--                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.-->
+            </p>
+        </div>
+        <h2>2. 특징 : </h2>
+        <div class="description">
+            <p>
+                &nbsp;&nbsp;- 다중 클래스 분류를 위해 Softmax회귀를 사용한다.<br>
+                &nbsp;&nbsp;- 이미지 분류를 위해 1차원 평면화 시키는 과정이 필요하다.<br>
+                &nbsp;&nbsp;- 기존 전결합층(Fully Connected)인공신경망은 평면화(Flatten)과정에서 공간정보가 손실된다.<br>
+                &nbsp;&nbsp;- (핵심) 3차원 이미지를 특징을 학습하기위해 평면화과정 이전에 Feature Extraction부분이 추가되었다.<br>
+                &nbsp;&nbsp;- Feature Extraction : Convolution + Relu + Pooling<br>
+                &nbsp;&nbsp;- Classification : Flatten + Relu + Softmax<br>
+                &nbsp;&nbsp;- 3차원 데이터 특징 추출 및 공간정보 학습이 가능하며 위치변화에 강하다.<br>
+                
             </p>
         </div>
 
+        <h2>3. 시각화 : </h2>
         <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
             <div fxLayout="column">
                 <img src="assets/result-img/cnn/CNN.png"/>
 
                 <div class="btn-step" fxLayout="row">
-                    <button (click)="OpenDetailDialog(1)">Step 1</button>
+                    <button (click)="OpenDetailDialog(1)">Input</button>
 
                     <div fxLayout="column">
                         <div fxLayout="row">
                             <div fxLayout="column">
-                                <button (click)="OpenDetailDialog(2)">Step 2</button>
-                                <button (click)="OpenDetailDialog(3)">Step 3</button>
+                                <button (click)="OpenDetailDialog(2)">Conv1</button>
+                                <button (click)="OpenDetailDialog(3)">Conv2</button>
                             </div>
 
                             <div fxLayout="column">
-                                <button (click)="OpenDetailDialog(4)">Step 4</button>
+                                <button (click)="OpenDetailDialog(4)">Relu</button>
                             </div>
                         </div>
 
-                        <button (click)="OpenDetailDialog(6)">Step 6</button>
+                        <button (click)="OpenDetailDialog(6)">Feature Extraction</button>
                     </div>
 
-                    <button (click)="OpenDetailDialog(5)">Step 5</button>
+                    <button (click)="OpenDetailDialog(5)">Pooling</button>
 
-                    <button (click)="OpenDetailDialog(7)">Step 7</button>
+                    <button (click)="OpenDetailDialog(7)">Flatten</button>
 
-                    <button (click)="OpenDetailDialog(8)">Step 8</button>
+                    <button (click)="OpenDetailDialog(8)">Softmax</button>
                 </div>
             </div>
             <!--            <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값(K) 입력</span>-->
