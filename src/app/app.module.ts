@@ -26,7 +26,7 @@ import {MathJaxModule} from 'ngx-mathjax';
         DetailDialogComponent,
         FadeInDirective,
         GanComponent,
-        CnnComponent
+        CnnComponent,
     ],
     imports: [
         BrowserModule,
