@@ -25,6 +25,7 @@
     "@tensorflow/tfjs": "^2.0.1",
     "@tensorflow/tfjs-vis": "^1.4.3",
     "hammerjs": "^2.0.8",
+    "ngx-mathjax": "0.0.13",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.6.2",
     "tslib": "^1.10.0",

@@ -27,6 +27,8 @@
 
   .image {
     margin-top: 20px;
+    max-width: 960px;
+    max-height: 480px;
   }
 
   .image-size {
@@ -34,5 +36,20 @@
     width: 840px;
     height: auto;
     object-fit: cover;
+  }
+
+  .image-size-linear {
+    margin-top: 56px;
+    width: 640px;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .linear {
+    margin-top: 4px;
+
+    span:not(:first-child) {
+      margin-top: 2px;
+    }
   }
 }

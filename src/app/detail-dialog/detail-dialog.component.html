@@ -5,6 +5,11 @@
 
     <span class="step" [innerText]="detailData.step"></span>
 
-    <img class="image" *ngIf="detailData.image.length > 0 && image" [src]="image" [ngClass]="detailData.logTxt ? 'image-size' : ''"/>
+    <img class="image" *ngIf="detailData.image.length > 0 && image" [src]="image" [ngClass]="detailData.logTxt ? 'image-size' : detailData.linear ? 'image-size-linear' : ''"/>
     <span class="log" *ngIf="detailData.logTxt">Epoch: {{epoch}}, D loss: {{D_loss}}, G loss: {{G_loss}}</span>
+    <div class="linear" fxLayout="column" *ngIf="detailData.linearTxt">
+        <ng-container *ngFor="let linear of detailData.linearTxt;">
+            <span [style.opacity]="detailData.isStep && imageIndex < detailData.image.length - 1 ? 0 : 1">{{linear}}</span>
+        </ng-container>
+    </div>
 </div>

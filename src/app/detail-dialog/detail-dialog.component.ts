@@ -13,6 +13,7 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
 
     image: string;
     private autoImageAnimation: any;
+    imageIndex: number;
 
     epoch: number;
     D_loss: number;
@@ -34,6 +35,12 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
             if (this.detailData.timeExpand) {
                 const timer = TimerObservable.create(0, 3000 * (this.detailData.image.length) + 3000);
                 this.autoImageAnimation = timer.subscribe(t => {
+                    this.SetImage();
+                });
+            } else if (this.detailData.isStep) {
+                const timer = TimerObservable.create(0, 500 * (this.detailData.image.length) + 1500);
+                this.autoImageAnimation = timer.subscribe(t => {
+                    this.imageIndex = 0;
                     this.SetImage();
                 });
             } else {
@@ -66,6 +73,13 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
                 setTimeout(() => {
                     this.image = this.detailData.image[i];
                 }, 3000 * (i + 1));
+            }
+        } else if (this.detailData.isStep) {
+            for (let i = 0; i <= this.detailData.image.length - 1; i++) {
+                setTimeout(() => {
+                    this.image = this.detailData.image[i];
+                    this.imageIndex = i;
+                }, 500 * (i + 1));
             }
         } else {
             for (let i = 0; i <= this.detailData.image.length - 1; i++) {
