@@ -15,6 +15,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FadeInDirective } from './fade-in.directive';
 import { GanComponent } from './gan/gan.component';
 import { CnnComponent } from './cnn/cnn.component';
+import {MathJaxModule} from 'ngx-mathjax';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,12 @@ import { CnnComponent } from './cnn/cnn.component';
         MatIconModule,
         MatDialogModule,
         FlexLayoutModule,
+        MathJaxModule.forRoot()
+        // MathJaxModule.forRoot({
+        //     version: '2.7.5',
+        //     config: 'TeX-AMS_HTML',
+        //     hostname: 'cdnjs.cloudflare.com'
+        // })
     ],
     providers: [],
     bootstrap: [AppComponent],

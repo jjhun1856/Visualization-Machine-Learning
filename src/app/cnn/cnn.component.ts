@@ -72,7 +72,7 @@ export class CnnComponent implements OnInit {
             }
             case 6: {
                 data = {
-                    step: 'Step2. 모델 학습하기\n\nEpoch: 학습 횟수\nD(iscriminator) loss: 작을수록 좋음\n G(enerator) loss: 클수록 성능 높음',
+                    step: 'Step6. 합성곱, 활성화함수, pooling 적용 과정',
                     image: [],
                     timeExpand: null,
                 }
