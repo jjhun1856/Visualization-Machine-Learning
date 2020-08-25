@@ -29,6 +29,9 @@
 }
 
 .description {
+  display:flex;
+  justify-content:center;
+
   p {
     word-break: keep-all;
   }

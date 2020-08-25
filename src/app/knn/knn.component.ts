@@ -1,12 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
+import { ViewEncapsulation } from '@angular/core';
 // import * as tf from '@tensorflow/tfjs';
 
 @Component({
   selector: 'app-knn',
   templateUrl: './knn.component.html',
-  styleUrls: ['./knn.component.scss']
+  styleUrls: ['./knn.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class KnnComponent implements OnInit {
 

@@ -4,11 +4,15 @@ import * as tfvis from '@tensorflow/tfjs-vis';
 import $ from 'jquery';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import { ViewEncapsulation } from '@angular/core';
+
 
 @Component({
   selector: 'app-linear-regression',
   templateUrl: './linear-regression.component.html',
-  styleUrls: ['./linear-regression.component.scss']
+  styleUrls: ['./linear-regression.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class LinearRegressionComponent implements OnInit {
 
