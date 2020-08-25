@@ -236,9 +236,9 @@ function draw() {
 
   var P = new U.Vol(2, 2, 3); // input volume
   for(var i = 0; i < 3; i++) P.w[i] = maxPooling(L.w[0 + i], L.w[3 + i], L.w[12 + i], L.w[15 + i]);
-  for(var i = 3; i < 6; i++) P.w[i] = maxPooling(L.w[3 + i], L.w[6 + i], L.w[15 + i], L.w[18 + i]) 
-  for(var i = 6; i < 9; i++) P.w[i] = maxPooling(L.w[18 + i], L.w[21 + i], L.w[30 + i], L.w[33 + i]) 
-  for(var i = 9; i < 12; i++) P.w[i] = maxPooling(L.w[21 + i], L.w[24 + i], L.w[33 + i], L.w[36 + i]) 
+  for(var i = 3; i < 6; i++) P.w[i] = maxPooling(L.w[3 + i], L.w[6 + i], L.w[15 + i], L.w[18 + i]); 
+  for(var i = 6; i < 9; i++) P.w[i] = maxPooling(L.w[18 + i], L.w[21 + i], L.w[30 + i], L.w[33 + i]);
+  for(var i = 9; i < 12; i++) P.w[i] = maxPooling(L.w[21 + i], L.w[24 + i], L.w[33 + i], L.w[36 + i]); 
 
   renderVol(svg, P, 1200, yoff, '#DDF', 'Pooling', 'l');
 
