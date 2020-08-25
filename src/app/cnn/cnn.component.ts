@@ -1,18 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'app-cnn',
     templateUrl: './cnn.component.html',
-    styleUrls: ['./cnn.component.scss']
+    styleUrls: ['./cnn.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
+
 export class CnnComponent implements OnInit {
 
     constructor(
         private dialog: MatDialog,
     ) {
     }
+
+    
 
     ngOnInit(): void {
     }
@@ -75,16 +80,16 @@ export class CnnComponent implements OnInit {
             }
             case 7: {
                 data = {
-                    step: 'Step2. 모델 학습하기\n\nEpoch: 학습 횟수\nD(iscriminator) loss: 작을수록 좋음\n G(enerator) loss: 클수록 성능 높음',
-                    image: [],
+                    step: 'Step7. 여러번의 Feature Extraction의 학습이 끝난 후 추출한 특징을 바탕으로 Classification을 진행\nClassification을 진행하기 위해 다차원 배열을 1차원 데이터로 평면화(Flatten)',
+                    image: ['/assets/result-img/cnn/CNN_07_1.png'],
                     timeExpand: null,
                 }
                 break;
             }
             case 8: {
                 data = {
-                    step: 'Step2. 모델 학습하기\n\nEpoch: 학습 횟수\nD(iscriminator) loss: 작을수록 좋음\n G(enerator) loss: 클수록 성능 높음',
-                    image: [],
+                    step: 'Step8. 평탄화 된 데이터를 전결합층(Fully Connected Layer) Softmax회귀를 사용하여 분류',
+                    image: ['/assets/result-img/cnn/CNN_08_1.png'],
                     timeExpand: null,
                 }
                 break;
