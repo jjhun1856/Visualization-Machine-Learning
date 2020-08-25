@@ -40,8 +40,8 @@ export class CnnComponent implements OnInit {
             }
             case 2: {
                 data = {
-                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n2-3 예는 이미지에 수평필터 { {-1, -1, -1}, {1, 1, 1}, {-1, -1, -1} }을 적용한 특징맵이다.',
-                    image: ['/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_2-0000.jpg', '/assets/result-img/cnn/CNN_02_2-0001.jpg', '/assets/result-img/cnn/CNN_02_2-0002.jpg', '/assets/result-img/cnn/CNN_02_2-0003.jpg', '/assets/result-img/cnn/CNN_02_2-0004.jpg', '/assets/result-img/cnn/CNN_02_2-0005.jpg', '/assets/result-img/cnn/CNN_02_2-0006.jpg', '/assets/result-img/cnn/CNN_02_2-0007.jpg', '/assets/result-img/cnn/CNN_02_2-0008.jpg', '/assets/result-img/cnn/CNN_02_3.gif', '/assets/result-img/cnn/CNN_02_4.gif'],
+                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n마지막 이미지에 필터 적용해서 추출한 특징맵 예시이다.',
+                    image: ['/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_2-0000.jpg', '/assets/result-img/cnn/CNN_02_2-0001.jpg', '/assets/result-img/cnn/CNN_02_2-0002.jpg', '/assets/result-img/cnn/CNN_02_2-0003.jpg', '/assets/result-img/cnn/CNN_02_2-0004.jpg', '/assets/result-img/cnn/CNN_02_2-0005.jpg', '/assets/result-img/cnn/CNN_02_2-0006.jpg', '/assets/result-img/cnn/CNN_02_2-0007.jpg', '/assets/result-img/cnn/CNN_02_2-0008.jpg', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png'],
                     timeExpand: null,
                 }
                 break;
@@ -72,8 +72,25 @@ export class CnnComponent implements OnInit {
             }
             case 6: {
                 data = {
-                    step: 'Step6. 합성곱, 활성화함수, pooling 적용 과정',
-                    image: [],
+                    step: 'Step6. 입력데이터가 Convolution > Relu > pooling 과정을 거쳐 특징맵으로 추출됨\n이 전체 과정을 Feature Extraction이라 하며 가중치 값을 바꿔가며 학습을 여러번 진행한다',
+                    image: ['/assets/result-img/cnn/CNN_06/25-08-2020_15-38-16.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-17.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-18.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-19.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-20.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-21.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-22.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-23.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-24.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-25.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-26.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-27.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-28.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-29.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-30.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-30.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-32.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-33.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-34.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-35.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-36.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-37.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-38.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-39.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-40.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-41.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-42.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-43.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-44.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-45.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-46.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-47.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-48.jpg', 
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-49.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-50.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-51.jpg',
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-52.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-53.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-54.jpg',
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-55.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-56.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-57.jpg',
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-58.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-38-59.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-39-00.jpg',
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-39-01.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-39-02.jpg', '/assets/result-img/cnn/CNN_06/25-08-2020_15-39-03.jpg',
+                    '/assets/result-img/cnn/CNN_06/25-08-2020_15-39-04.jpg' ],
+
                     timeExpand: null,
                 }
                 break;

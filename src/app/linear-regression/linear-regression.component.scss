@@ -67,6 +67,8 @@
 //  color: black;
 //}
 
+
+
 #header {
   padding-top: 36px;
   padding-bottom: 28px;
@@ -91,9 +93,12 @@
 }
 
 .description {
+
   p {
     margin-top: 8px;
     word-break: keep-all;
+      display:flex;
+      justify-content:center;
   }
 
   img {
