@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path: 'cnn',
     component: CnnComponent,
-  }
+  },
 ];
 
 @NgModule({
