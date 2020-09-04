@@ -386,14 +386,14 @@ export class KnnComponent implements OnInit {
       case 4: {
         data = {
           step: 'Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = 3',
-          image: ['/assets/result-img/knn/KNN_4-1.png', '/assets/result-img/knn/KNN_4-2.png']
+          image: ['/assets/result-img/knn/KNN_4-1.png', '/assets/result-img/knn/KNN_4-1.png', '/assets/result-img/knn/KNN_4-1.png', '/assets/result-img/knn/KNN_4-2.png']
         }
         break;
       }
       case 5: {
         data = {
           step: 'Step5. 선택된 값 중 다수 값으로 분류',
-          image: ['/assets/result-img/knn/KNN_5-1.png', '/assets/result-img/knn/KNN_5-2.png']
+          image: ['/assets/result-img/knn/KNN_5-1.png', '/assets/result-img/knn/KNN_5-1.png', '/assets/result-img/knn/KNN_5-1.png', '/assets/result-img/knn/KNN_5-2.png']
         }
         break;
       }
