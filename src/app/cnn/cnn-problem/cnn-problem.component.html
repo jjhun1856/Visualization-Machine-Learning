@@ -1,0 +1,122 @@
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+    <div>
+        <span>1. CNN의 뜻은?</span>
+        <input type="text" [(ngModel)]="answer1"/>
+    </div>
+
+    <div>
+        <span>2. 머신러닝은 크게 지도학습, 비지도학습, 강화학습으로 나뉠 수 있다. CNN알고리즘은 어디에 속하는가?</span>
+        <input type="text" [(ngModel)]="answer2"/>
+    </div>
+
+    <div>
+        <span>3. CNN알고리즘은 크게 두 가지 파트로 나뉜다. 각각을 쓰시오.</span>
+        <input type="text" [(ngModel)]="answer3"/>
+        <input type="text" [(ngModel)]="answer4"/>
+    </div>
+
+    <div>
+        <span>4. 특징을 추출하는 Feature Extraction부분은 세 파트로 나뉜다. 각각을 쓰시오.</span>
+        <input type="text" [(ngModel)]="answer5"/>
+        <input type="text" [(ngModel)]="answer6"/>
+        <input type="text" [(ngModel)]="answer7"/>
+    </div>
+
+    <div>
+        <span>5. CNN알고리즘에서 3차원 이미지특징을 추출하기 위해 합성곱 과정에서 쓰이는 파라미터를 뭐라고 하는가?</span>
+        <input type="text" [(ngModel)]="answer8"/>
+    </div>
+
+    <div>
+        <span>6. 합성곱(Convolution)처리 결과로 나오는 것은?</span>
+        <mat-radio-group [(ngModel)]="answer9" fxLayout="column">
+            <mat-radio-button value="1">Stride</mat-radio-button>
+            <mat-radio-button value="2">Channel</mat-radio-button>
+            <mat-radio-button value="3">Feature map</mat-radio-button>
+            <mat-radio-button value="4">kernel</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>7. CNN알고리즘의 특징으로 옳지 않은 것은?</span>
+        <mat-radio-group [(ngModel)]="answer10" fxLayout="column">
+            <mat-radio-button value="1">3차원 데이터 특징 추출이 가능하다.</mat-radio-button>
+            <mat-radio-button value="2">분류 알고리즘으로 주로 Softmax회귀를 사용한다.</mat-radio-button>
+            <mat-radio-button value="3">이미지 위치 변화에 민감하다.</mat-radio-button>
+            <mat-radio-button value="4">Feature Extraction과정을 여러번 반복한다.</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>8. 합성곱 과정에서 출력데이터의 크기가 계속해서 줄어드는 것을 막기 위해 사용하는 것은?</span>
+        <input type="text" [(ngModel)]="answer11"/>
+    </div>
+
+    <button (click)="submit()">제출</button>
+</div>
+
+<div *ngIf="isSubmit">
+    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <div>
+        <span>1. CNN의 뜻은?</span>
+        <input type="text" value="Convolutional Neural Networks"/>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>2. 머신러닝은 크게 지도학습, 비지도학습, 강화학습으로 나뉠 수 있다. CNN알고리즘은 어디에 속하는가?</span>
+        <input type="text" value="강화학습"/>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>3. CNN알고리즘은 크게 두 가지 파트로 나뉜다. 각각을 쓰시오.</span>
+        <input type="text" value="Feature Extraction"/>
+        <input type="text" value="Classification"/>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>4. 특징을 추출하는 Feature Extraction부분은 세 파트로 나뉜다. 각각을 쓰시오.</span>
+        <input type="text" value="Convolution"/>
+        <input type="text" value="Relu"/>
+        <input type="text" value="Pooling"/>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>5. CNN알고리즘에서 3차원 이미지특징을 추출하기 위해 합성곱 과정에서 쓰이는 파라미터를 뭐라고 하는가?</span>
+        <input type="text" value="Filter(Kernel)"/>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>6. 합성곱(Convolution)처리 결과로 나오는 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">Stride</mat-radio-button>
+            <mat-radio-button value="2">Channel</mat-radio-button>
+            <mat-radio-button value="3" [checked]="true">Feature map</mat-radio-button>
+            <mat-radio-button value="4">kernel</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>7. CNN알고리즘의 특징으로 옳지 않은 것은?</span>
+        <mat-radio-group  fxLayout="column">
+            <mat-radio-button value="1">3차원 데이터 특징 추출이 가능하다.</mat-radio-button>
+            <mat-radio-button value="2">분류 알고리즘으로 주로 Softmax회귀를 사용한다.</mat-radio-button>
+            <mat-radio-button value="3" [checked]="true">이미지 위치 변화에 민감하다.</mat-radio-button>
+            <mat-radio-button value="4">Feature Extraction과정을 여러번 반복한다.</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: <br><br></span>
+    </div>
+
+    <div>
+        <span>8. 합성곱 과정에서 출력데이터의 크기가 계속해서 줄어드는 것을 막기 위해 사용하는 것은?</span>
+        <input type="text" value="Padding"/>
+        <span>해설: <br><br></span>
+    </div>
+    
+
+</div>
