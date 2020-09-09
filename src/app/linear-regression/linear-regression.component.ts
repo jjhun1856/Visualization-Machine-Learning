@@ -5,6 +5,7 @@ import $ from 'jquery';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import { ViewEncapsulation } from '@angular/core';
+import {LinearRegressionProblemComponent} from './linear-regression-problem/linear-regression-problem.component';
 
 
 @Component({
@@ -15,6 +16,9 @@ import { ViewEncapsulation } from '@angular/core';
 
 })
 export class LinearRegressionComponent implements OnInit {
+  pattern: string;
+
+  selectData: boolean = false;
 
   // vis: any;
   // visor: any;
@@ -579,67 +583,132 @@ export class LinearRegressionComponent implements OnInit {
 
     switch (step) {
       case 1: {
-        data = {
-          step: `Step1. 데이터 입력 받기`,
-          image: [],
-          linearTxt: null,
-          linear: '1',
-          isStep: null
-        }
-        for (let i = 0; i < 100; i++) {
-          if (i < 10) {
-            data.image.push('/assets/result-img/linear-regression/step1/input_00' + i + '.png');
-          } else {
-            data.image.push('/assets/result-img/linear-regression/step1/input_0' + i + '.png');
+        if (this.pattern === '1') {
+          data = {
+            step: `Step1. 데이터 입력 받기`,
+            image: [],
+            linearTxt: null,
+            linear: '1',
+            isStep: null
+          }
+          for (let i = 0; i < 30; i++) {
+            if (i < 10) {
+              data.image.push('/assets/result-img/linear-regression/case1/step1/input_00' + i + '.png');
+            } else {
+              data.image.push('/assets/result-img/linear-regression/case1/step1/input_0' + i + '.png');
+            }
+          }
+        } else if (this.pattern === '2') {
+          data = {
+            step: `Step1. 데이터 입력 받기`,
+            image: [],
+            linearTxt: null,
+            linear: '1',
+            isStep: null
+          }
+          for (let i = 0; i < 100; i++) {
+            if (i < 10) {
+              data.image.push('/assets/result-img/linear-regression/case2/step1/input_00' + i + '.png');
+            } else {
+              data.image.push('/assets/result-img/linear-regression/case2/step1/input_0' + i + '.png');
+            }
           }
         }
         break;
       }
       case 2: {
-        data = {
-          step: 'Step2. x, y좌표 평균 구하기',
-          image: ['/assets/result-img/linear-regression/step2/mean.png'],
-          linearTxt: ['x좌표의 평균 = 66.15002817189999', 'y좌표의 평균 = 158.4874084518'],
-          linear: '1',
-          isStep: null
+        if (this.pattern === '1') {
+          data = {
+            step: 'Step2. x, y좌표 평균 구하기',
+            image: ['/assets/result-img/linear-regression/case1/step2/mean.png'],
+            linearTxt: ['x좌표의 평균 = 66.12567728866665', 'y좌표의 평균 = -423.20156773958104'],
+            linear: '1',
+            isStep: null
+          }
+        } else if (this.pattern === '2') {
+          data = {
+            step: 'Step2. x, y좌표 평균 구하기',
+            image: ['/assets/result-img/linear-regression/case2/step2/mean.png'],
+            linearTxt: ['x좌표의 평균 = 66.17838811266668', 'y좌표의 평균 = 161.42763437000005'],
+            linear: '1',
+            isStep: null
+          }
         }
         break;
       }
       case 3: {
-        data = {
-          step: 'Step3. 최소제곱법을 이용하여 기울기, y절편 구하기',
-          image: ['/assets/result-img/linear-regression/step2/mean.png'],
-          linearTxt: ['a(기울기) = 7.81035157', 'b(y절편) = -358.1675681555462'],
-          linear: '1',
-          isStep: '3'
-        }
+        if (this.pattern === '1') {
+          data = {
+            step: 'Step3. 최소제곱법을 이용하여 기울기, y절편 구하기',
+            image: [],
+            linearTxt: ['a(기울기) = 7.81035157', 'b(y절편) = -358.1675681555462'],
+            linear: '1',
+            isStep: '3'
+          }
 
-        for (let i = 0; i < 100; i++) {
-          if (i < 10) {
-            data.image.push('/assets/result-img/linear-regression/step3/distance_00' + i + '.png');
-          } else {
-            data.image.push('/assets/result-img/linear-regression/step3/distance_0' + i + '.png');
+          for (let i = 0; i < 100; i++) {
+            if (i < 10) {
+              data.image.push('/assets/result-img/linear-regression/case1/step3/distance_00' + i + '.png');
+            } else {
+              data.image.push('/assets/result-img/linear-regression/case1/step3/distance_0' + i + '.png');
+            }
+          }
+        } else if (this.pattern === '2') {
+          data = {
+            step: 'Step3. 최소제곱법을 이용하여 기울기, y절편 구하기',
+            image: [],
+            linearTxt: ['a(기울기) = 7.81035157', 'b(y절편) = -358.1675681555462'],
+            linear: '1',
+            isStep: '3'
+          }
+
+          for (let i = 0; i < 100; i++) {
+            if (i < 10) {
+              data.image.push('/assets/result-img/linear-regression/case2/step3/distance_00' + i + '.png');
+            } else {
+              data.image.push('/assets/result-img/linear-regression/case2/step3/distance_0' + i + '.png');
+            }
           }
         }
         break;
       }
       case 4: {
-        data = {
-          step: 'Step4. 예측 선형 함수 그리기',
-          image: ['/assets/result-img/linear-regression/step4/output.png'],
-          linearTxt: ['y = 7.81035157x - 358.1675681555462'],
-          linear: '1',
-          isStep: null
+        if (this.pattern === '1') {
+          data = {
+            step: 'Step4. 예측 선형 함수 그리기',
+            image: ['/assets/result-img/linear-regression/case1/step4/output.png'],
+            linearTxt: ['y = -7.556105x + 661.478496'],
+            linear: '1',
+            isStep: null
+          }
+        } else if (this.pattern === '2') {
+          data = {
+            step: 'Step4. 예측 선형 함수 그리기',
+            image: ['/assets/result-img/linear-regression/case2/step4/output.png'],
+            linearTxt: ['y = -7.556105x + 661.478496'],
+            linear: '1',
+            isStep: null
+          }
         }
         break;
       }
       case 5: {
-        data = {
-          step: 'Step5. x = 70 값 예측해보기',
-          image: ['/assets/result-img/linear-regression/step5/predict.png'],
-          linearTxt: ['y = 188.55704198'],
-          linear: '1',
-          isStep: null
+        if (this.pattern === '1') {
+          data = {
+            step: 'Step5. x = 70 값 예측해보기',
+            image: ['/assets/result-img/linear-regression/case1/step5/predict.png'],
+            linearTxt: ['y = 190.95904939'],
+            linear: '1',
+            isStep: null
+          }
+        } else if (this.pattern === '2') {
+          data = {
+            step: 'Step5. x = 70 값 예측해보기',
+            image: ['/assets/result-img/linear-regression/case2/step5/predict.png'],
+            linearTxt: ['y = 132.55113299'],
+            linear: '1',
+            isStep: null
+          }
         }
         break;
       }
@@ -649,6 +718,21 @@ export class LinearRegressionComponent implements OnInit {
       width: '1080px',
       height: '640px',
       data: data
+    });
+  }
+
+  dataChange(event: any) {
+    this.pattern = event.value;
+  }
+
+  dataSelect() {
+    this.selectData = true;
+  }
+
+  openProblemDialog() {
+    this.dialog.open(LinearRegressionProblemComponent, {
+      width: '1080px',
+      height: '640px'
     });
   }
 }

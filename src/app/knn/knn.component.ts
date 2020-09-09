@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
 import { ViewEncapsulation } from '@angular/core';
+import {KnnProblemComponent} from './knn-problem/knn-problem.component';
 // import * as tf from '@tensorflow/tfjs';
 
 @Component({
@@ -11,6 +12,10 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class KnnComponent implements OnInit {
+  k: string;
+  xy: string;
+
+  selectData: boolean = false;
 
   // code: string =
   //   'Read number of data N and number of distances to choose K\n' +
@@ -364,36 +369,92 @@ export class KnnComponent implements OnInit {
     switch (step) {
       case 1: {
         data = {
-          step: `Step1. 데이터셋(X, Y), K(K)값 입력\nK = 3`,
+          step: `Step1. 데이터셋(X, Y), K(${this.k})값 입력\nK = ${this.k}`,
           image: ['/assets/result-img/knn/KNN_1.png']
         }
         break;
       }
       case 2: {
-        data = {
-          step: 'Step2. 분류할 데이터 입력\n(X, Y) = (6, 4)',
-          image: ['/assets/result-img/knn/KNN_2-1.png', '/assets/result-img/knn/KNN_2-2.png']
+        if (this.xy === '(3, 6)') {
+          data = {
+            step: `Step2. 분류할 데이터 입력\n(X, Y) = ${this.xy}`,
+            image: ['/assets/result-img/knn/3-6/KNN_2-1.png', '/assets/result-img/knn/3-6/KNN_2-2.png']
+          }
+        } else if (this.xy === '(6, 4)') {
+          data = {
+            step: `Step2. 분류할 데이터 입력\n(X, Y) = ${this.xy}`,
+            image: ['/assets/result-img/knn/6-4/KNN_2-1.png', '/assets/result-img/knn/6-4/KNN_2-2.png']
+          }
         }
         break;
       }
       case 3: {
-        data = {
-          step: 'Step3. 모든 데이터셋과 거리 계산',
-          image: ['/assets/result-img/knn/KNN_3-01.png', '/assets/result-img/knn/KNN_3-02.png', '/assets/result-img/knn/KNN_3-03.png', '/assets/result-img/knn/KNN_3-04.png', '/assets/result-img/knn/KNN_3-05.png', '/assets/result-img/knn/KNN_3-06.png', '/assets/result-img/knn/KNN_3-07.png', '/assets/result-img/knn/KNN_3-08.png', '/assets/result-img/knn/KNN_3-09.png', '/assets/result-img/knn/KNN_3-10.png', '/assets/result-img/knn/KNN_3-11.png', '/assets/result-img/knn/KNN_3-12.png', '/assets/result-img/knn/KNN_3-13.png', '/assets/result-img/knn/KNN_3-14.png']
+        if (this.xy === '(3, 6)') {
+          data = {
+            step: 'Step3. 모든 데이터셋과 거리 계산',
+            image: ['/assets/result-img/knn/3-6/KNN_3-01.png', '/assets/result-img/knn/3-6/KNN_3-02.png', '/assets/result-img/knn/3-6/KNN_3-03.png', '/assets/result-img/knn/3-6/KNN_3-04.png', '/assets/result-img/knn/3-6/KNN_3-05.png', '/assets/result-img/knn/3-6/KNN_3-06.png', '/assets/result-img/knn/3-6/KNN_3-07.png', '/assets/result-img/knn/3-6/KNN_3-08.png', '/assets/result-img/knn/3-6/KNN_3-09.png', '/assets/result-img/knn/3-6/KNN_3-10.png', '/assets/result-img/knn/3-6/KNN_3-11.png', '/assets/result-img/knn/3-6/KNN_3-12.png', '/assets/result-img/knn/3-6/KNN_3-13.png', '/assets/result-img/knn/3-6/KNN_3-14.png']
+          }
+        } else if (this.xy === '(6, 4)') {
+          data = {
+            step: 'Step3. 모든 데이터셋과 거리 계산',
+            image: ['/assets/result-img/knn/6-4/KNN_3-01.png', '/assets/result-img/knn/6-4/KNN_3-02.png', '/assets/result-img/knn/6-4/KNN_3-03.png', '/assets/result-img/knn/6-4/KNN_3-04.png', '/assets/result-img/knn/6-4/KNN_3-05.png', '/assets/result-img/knn/6-4/KNN_3-06.png', '/assets/result-img/knn/6-4/KNN_3-07.png', '/assets/result-img/knn/6-4/KNN_3-08.png', '/assets/result-img/knn/6-4/KNN_3-09.png', '/assets/result-img/knn/6-4/KNN_3-10.png', '/assets/result-img/knn/6-4/KNN_3-11.png', '/assets/result-img/knn/6-4/KNN_3-12.png', '/assets/result-img/knn/6-4/KNN_3-13.png', '/assets/result-img/knn/6-4/KNN_3-14.png']
+          }
         }
         break;
       }
       case 4: {
-        data = {
-          step: 'Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = 3',
-          image: ['/assets/result-img/knn/KNN_4-1.png', '/assets/result-img/knn/KNN_4-2.png']
+        if (this.xy === '(3, 6)') {
+          if (this.k === '1') {
+            data = {
+              step: `Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/3-6/1/KNN_4-1.png', '/assets/result-img/knn/3-6/1/KNN_4-2.png']
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: `Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/3-6/3/KNN_4-1.png', '/assets/result-img/knn/3-6/3/KNN_4-2.png']
+            }
+          }
+        } else if (this.xy === '(6, 4)') {
+          if (this.k === '1') {
+            data = {
+              step: `Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/6-4/1/KNN_4-1.png', '/assets/result-img/knn/6-4/1/KNN_4-2.png']
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: `Step4. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/6-4/3/KNN_4-1.png', '/assets/result-img/knn/6-4/3/KNN_4-2.png']
+            }
+          }
         }
         break;
       }
       case 5: {
-        data = {
-          step: 'Step5. 선택된 값 중 다수 값으로 분류',
-          image: ['/assets/result-img/knn/KNN_5-1.png', '/assets/result-img/knn/KNN_5-2.png']
+        if (this.xy === '(3, 6)') {
+          if (this.k === '1') {
+            data = {
+              step: 'Step5. 선택된 값 중 다수 값으로 분류',
+              image: ['/assets/result-img/knn/3-6/1/KNN_5-1.png', '/assets/result-img/knn/3-6/1/KNN_5-2.png']
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: 'Step5. 선택된 값 중 다수 값으로 분류',
+              image: ['/assets/result-img/knn/3-6/3/KNN_5-1.png', '/assets/result-img/knn/3-6/3/KNN_5-2.png']
+            }
+          }
+        } else if (this.xy === '(6, 4)') {
+          if (this.k === '1') {
+            data = {
+              step: 'Step5. 선택된 값 중 다수 값으로 분류',
+              image: ['/assets/result-img/knn/6-4/1/KNN_5-1.png', '/assets/result-img/knn/6-4/1/KNN_5-2.png']
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: 'Step5. 선택된 값 중 다수 값으로 분류',
+              image: ['/assets/result-img/knn/6-4/3/KNN_5-1.png', '/assets/result-img/knn/6-4/3/KNN_5-2.png']
+            }
+          }
         }
         break;
       }
@@ -403,6 +464,25 @@ export class KnnComponent implements OnInit {
       width: '1080px',
       height: '640px',
       data: data
+    });
+  }
+
+  kChange(event: any) {
+    this.k = event.value;
+  }
+
+  xyChange(event: any) {
+    this.xy = event.value;
+  }
+
+  dataSelect() {
+    this.selectData = true;
+  }
+
+  openProblemDialog() {
+    this.dialog.open(KnnProblemComponent, {
+      width: '1080px',
+      height: '640px'
     });
   }
 }

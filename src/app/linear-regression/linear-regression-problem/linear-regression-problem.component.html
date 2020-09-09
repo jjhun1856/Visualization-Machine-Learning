@@ -1,0 +1,28 @@
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+    <div>
+        <span>1. 선형 회귀(Linear regression)는 지도학습(Supervised learning) 중 하나이다.</span>
+        <mat-radio-group fxLayout="column" [(ngModel)]="answer1">
+            <mat-radio-button value="1">O</mat-radio-button>
+            <mat-radio-button value="2">X</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>2. 선형 회귀(Linear regression)는 한 개 이상의 독립 변수 x와 y의 선형 관계를 모델링한다. 이 때 독립 변수 x가 1개라면 어떤 선형 회귀인가?</span>
+        <input type="text" [(ngModel)]="answer2"/>
+    </div>
+
+    <div>
+        <span>3. 선형 회귀(Linear regression)에서 이 방법을 이용햐여 모델링을 하는데 이것은 무엇일까?</span>
+        <div fxLayoutAlign="center center">
+            <img src="assets/result-img/linear-regression/exp_2.png"/>
+        </div>
+        <input type="text" [(ngModel)]="answer3"/>
+    </div>
+
+    <button (click)="submit()">제출</button>
+</div>
+
+<div *ngIf="isSubmit">
+    <span>{{this.score}} / 100</span>
+</div>

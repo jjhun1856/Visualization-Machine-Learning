@@ -101,12 +101,16 @@
       justify-content:center;
   }
 
+  .exp {
+    margin: 8px 0;
+  }
+
   .exp img {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 12px;
-    width: 360px;
-    height: auto;
-    object-fit: none;
+    //padding: 12px;
+    //width: 360px;
+    //height: auto;
+    //object-fit: cover;
   }
 }
 
@@ -126,5 +130,28 @@
 
   mat-icon {
     font-size: 28px;
+  }
+}
+
+.abstract {
+  word-break: keep-all;
+
+  strong {
+    font-weight: 500;
+  }
+}
+
+.data-select {
+  mat-select {
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 8px 12px;
+  }
+}
+
+.code {
+  pre {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.65);
+    color: black;
   }
 }

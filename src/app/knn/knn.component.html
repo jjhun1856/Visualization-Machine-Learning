@@ -9,36 +9,55 @@
         <h1 class="title">K-Nearest Neighbor</h1>
     </header>
 
-    <section id="main">
-        <h2>1. Abstract</h2>
-        <div class="description">
-            
+    <section id="main" fxLayout="column" fxLayoutGap="16px">
+        <div>
+            <h2>1. Abstract</h2>
+            <div class="description">
+
                 &nbsp;&nbsp;&nbsp;&nbsp;KNN알고리즘은 K-Nearest Neighbor, 즉, k개 최근접 이웃 알고리즘으로 머신러닝 지도학슴(Supervised)의 분류(Classification)
                 알고리즘에 해당한다. 간단한 머신러닝 알고리즘 중 하나이다. 입력데이터와 근접한 K개의 훈련 데이터셋(Data set)사이에서 가장 빈번한 것으로 분류하는 알고리즘이다.<br>
                 <br>
-            
+
+            </div>
         </div>
 
-        <h2>2. 특징</h2>
-        <div class="description">
-            <p>        
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.<br><br>
-            </p>
+        <div>
+            <h2>2. 특징</h2>
+            <div class="description">
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.<br><br>
+                </p>
+            </div>
         </div>
 
-        <h2>3. 흐름도 및 시각화</h2>
-        <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-            <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값(K) 입력</span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <span (click)="OpenDetailDialog(2)">분류할 데이터(X, Y) 입력</span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <span (click)="OpenDetailDialog(4)">거리가 짧은 순서로 K(K)개 만큼 선택</span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <span (click)="OpenDetailDialog(5)">선택한 값 중 다수 값으로 분류</span>
+        <div>
+            <h2>3. 흐름도 및 시각화</h2>
+            <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+                <mat-select placeholder="k값 선택" (selectionChange)="kChange($event)">
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="3">3</mat-option>
+                </mat-select>
+
+                <mat-select placeholder="분류할 데이터(x, y) 선택" (selectionChange)="xyChange($event)">
+                    <mat-option value="(3, 6)">(3, 6)</mat-option>
+                    <mat-option value="(6, 4)">(6, 4)</mat-option>
+                </mat-select>
+
+                <button (click)="dataSelect()">확인</button>
+            </div>
+            <div *ngIf="selectData" class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값({{this.k}}) 입력</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(2)">분류할 데이터{{this.xy}} 입력</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(4)">거리가 짧은 순서로 K({{this.k}})개 만큼 선택</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(5)">선택한 값 중 다수 값으로 분류</span>
+            </div>
         </div>
         <!--        <section class="thumbnails">-->
         <!--            <div class="code">-->
@@ -60,11 +79,48 @@
         <!--                <img id="vis-result"/>-->
         <!--            </div>-->
         <!--        </section>-->
+
+        <div>
+            <h2>4. code</h2>
+            <div class="code" fxLayoutAlign="center center">
+                <p>
+                    import pandas as pd<br>
+                    from sklearn.neighbors import KNeighborsClassifier<br>
+                    <br>
+                    df = pd.read_csv("creditlimit_train.csv") # train dataset<br>
+                    <br>
+                    # convert class labels in numerical data, assuming you have two classes<br>
+                    df['Level'].replace(['Low Level'],0)<br>
+                    df['Level'].replace(['High Level'],1)<br>
+                    <br>
+                    # extra data and class labels<br>
+                    data = df[['Salary','LoanAmt']]<br>
+                    target = df['Level']<br>
+                    <br>
+                    # convert df to numpy arrays<br>
+                    data = data.values<br>
+                    target =  target.values<br>
+                    <br>
+                    # you would ideally want to do a test train split.<br>
+                    #Train the model on training data and test on the test data for accuracy<br>
+                    <br>
+                    #pass in fit function<br>
+                    neigh = KNeighborsClassifier(n_neighbors=5,algorithm='auto')<br>
+                    neigh.fit(data,target) ## how to passs the parameters here?
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <h2>5. 문제 풀기</h2>
+            <div fxLayoutAlign="center center">
+                <button (click)="openProblemDialog()">문제 풀기</button>
+            </div>
+        </div>
     </section>
 
 
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>. Demo Images: <a
-                href="http://unsplash.com">Unsplash</a>.</p>
+        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
     </footer>
 </div>

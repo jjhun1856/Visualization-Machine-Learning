@@ -16,6 +16,10 @@ import { FadeInDirective } from './fade-in.directive';
 import { GanComponent } from './gan/gan.component';
 import { CnnComponent } from './cnn/cnn.component';
 import {MathJaxModule} from 'ngx-mathjax';
+import {MatSelectModule} from '@angular/material/select';
+import { KnnProblemComponent } from './knn/knn-problem/knn-problem.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { LinearRegressionProblemComponent } from './linear-regression/linear-regression-problem/linear-regression-problem.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +31,8 @@ import {MathJaxModule} from 'ngx-mathjax';
         FadeInDirective,
         GanComponent,
         CnnComponent,
+        KnnProblemComponent,
+        LinearRegressionProblemComponent,
     ],
     imports: [
         BrowserModule,
@@ -36,7 +42,9 @@ import {MathJaxModule} from 'ngx-mathjax';
         MatIconModule,
         MatDialogModule,
         FlexLayoutModule,
-        MathJaxModule.forRoot()
+        MathJaxModule.forRoot(),
+        MatSelectModule,
+        MatRadioModule,
         // MathJaxModule.forRoot({
         //     version: '2.7.5',
         //     config: 'TeX-AMS_HTML',
@@ -46,7 +54,9 @@ import {MathJaxModule} from 'ngx-mathjax';
     providers: [],
     bootstrap: [AppComponent],
     entryComponents: [
-        DetailDialogComponent
+        DetailDialogComponent,
+        KnnProblemComponent,
+        LinearRegressionProblemComponent,
     ]
 })
 export class AppModule {
