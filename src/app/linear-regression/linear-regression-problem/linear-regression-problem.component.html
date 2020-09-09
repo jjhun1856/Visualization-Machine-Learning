@@ -24,5 +24,33 @@
 </div>
 
 <div *ngIf="isSubmit">
-    <span>{{this.score}} / 100</span>
+    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <div>
+        <span>1. 선형 회귀(Linear regression)는 지도학습(Supervised learning) 중 하나이다.</span>
+        <mat-radio-group fxLayout="column" [(ngModel)]="answer1">
+            <mat-radio-button value="1" [checked]="true">O</mat-radio-button>
+            <mat-radio-button value="2">X</mat-radio-button>
+        </mat-radio-group>
+        <span>
+        해설: 선형회귀(Linear regression)는 지도학습(Supervised learning) 중 하나이다.<br>
+        * 지도 학습(Supervised learning) : 이름에서 알 수 있듯이 컴퓨터에게 정답(Label)이 무엇인지 알려주면서 컴퓨터를 학습을 하는 방법<br>
+        * 비지도 학습 (Unsupervised Learning) : 지도 학습과는 달리 정답을 알려주지 않고 비슷한 데이터를 군집화 하여 미래를 예측하는 학습 방법. 라벨링이 되어있지 않은 데이터로부터 패턴이나 형태를 찾아야하기 때문에 어려움. 실제로 지도 학습에서 적절한 특징(Feature)을 찾아내기 위한 전처리 방법으로 비지도 학습을 사용하기도 함<br>
+        * 강화 학습(Reinforcement Learning) : 행동 심리학에서 나온 이론으로 분류할 수 있는 데이터가 존재하는 것도 아니고 데이터가 있다 해도 정답이 따로 정해져 있지도 않으며, 자신이 한 행동에 대해 보상(reward)을 받으며 학습하는 것   <br><br></span>
+    </div>
+
+    <div>
+        <span>2. 선형 회귀(Linear regression)는 한 개 이상의 독립 변수 x와 y의 선형 관계를 모델링한다. 이 때 독립 변수 x가 1개라면 어떤 선형 회귀인가?</span>
+        <input type="text" value="단순선형회귀(simple linear regression)" />
+        <span>해설: 독립 변수 x가 여러 개라면 다중 선형 회귀(Multiple Linear Regression)이다.<br><br></span>
+    </div>
+
+    <div>
+        <span>3. 선형 회귀(Linear regression)에서 이 방법을 이용햐여 모델링을 하는데 이것은 무엇일까?</span>
+        <div fxLayoutAlign="center center">
+            <img src="assets/result-img/linear-regression/exp_2.png"/>
+        </div>
+        <input type="text" value="최소제곱법(methods of least squares)"/>
+        <span>해설: 최소제곱법, 또는 최소자승법, 최소제곱근사법, 최소자승근사법(method of least squares, least squares approximation)은 어떤 계의 해방정식을 근사적으로 구하는 방법으로, 근사적으로 구하려는 해와 실제 해의 오차의 제곱의 합이 최소가 되는 해를 구하는 방법이다.<br></span>
+    </div>
+
 </div>

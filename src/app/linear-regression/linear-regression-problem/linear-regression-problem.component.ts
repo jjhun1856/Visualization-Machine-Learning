@@ -11,7 +11,6 @@ export class LinearRegressionProblemComponent implements OnInit {
     answer3: string;
 
     score: number = 0;
-
     isSubmit: boolean = false;
 
     constructor() {
