@@ -20,6 +20,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { KnnProblemComponent } from './knn/knn-problem/knn-problem.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { LinearRegressionProblemComponent } from './linear-regression/linear-regression-problem/linear-regression-problem.component';
+import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { LinearRegressionProblemComponent } from './linear-regression/linear-reg
         CnnComponent,
         KnnProblemComponent,
         LinearRegressionProblemComponent,
+        GanProblemComponent,
     ],
     imports: [
         BrowserModule,
@@ -57,6 +59,7 @@ import { LinearRegressionProblemComponent } from './linear-regression/linear-reg
         DetailDialogComponent,
         KnnProblemComponent,
         LinearRegressionProblemComponent,
+        GanProblemComponent,
     ]
 })
 export class AppModule {

@@ -1,0 +1,85 @@
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+    <div>
+        <span>1. GAN 알고리즘에 해당하는 것은?</span>
+        <mat-radio-group [(ngModel)]="answer1" fxLayout="column">
+            <mat-radio-button value="1">세대적 적대 신경망(Generational Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="2">생성적 적대 신경망(Generative Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="3">기하학 적대 신경망(Geometic Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="4">지리적 적대 신경망(Geotic Adversarial Network)</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>2. GAN은 강화학습(Reinforcement learning) 중 하나이다.</span>
+        <mat-radio-group fxLayout="column" [(ngModel)]="answer2">
+            <mat-radio-button value="1">O</mat-radio-button>
+            <mat-radio-button value="2">X</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>3. GAN을 경찰과 위조지폐범 사이의 게임에 비유했었는데, 각각의 역할에 맞는 모델은 무엇인가?</span>
+        <input type="text" [(ngModel)]="answer3"/>
+    </div>
+
+    <div>
+        <span>4. GAN의 특징으로 알맞지 않은 것은?</span>
+        <mat-radio-group [(ngModel)]="answer4" fxLayout="column">
+            <mat-radio-button value="1">생성 모델을 먼저 학습시킨 후 분류 모델을 학습시키며, 이 과정을 서로 주고받으면서 반복한다.</mat-radio-button>
+            <mat-radio-button value="2">Ian Goodfellow가 제안한 알고리즘이다.</mat-radio-button>
+            <mat-radio-button value="3">생성 모델은 분류에 성공할 확률을 낮추려 하고, 분류 모델은 분류에 성공할 확률을 높이려 한다.</mat-radio-button>
+            <mat-radio-button value="4">이미지 생성에 적합한 알고리즘이다.</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <button (click)="submit()">제출</button>
+</div>
+
+<div *ngIf="isSubmit">
+    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <div>
+        <span>1. GAN 알고리즘에 해당하는 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">세대적 적대 신경망(Generational Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="2" [checked]="true">생성적 적대 신경망(Generative Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="3">기하학 적대 신경망(Geometic Adversarial Network)</mat-radio-button>
+            <mat-radio-button value="4">지리적 적대 신경망(Geotic Adversarial Network)</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: 처음 GAN을 제안한 Ian Goodfellow는 GAN을 경찰과 위조지폐범 사이의 게임에 비유했습니다. 위조지폐범은 최대한 진짜 같은 화폐를 만들어(생성) 경찰을 속이기 위해 노력하고, 경찰은 진짜 화폐와 가짜 화폐를 완벽히 판별(분류)하여 위조지폐범을 검거하는 것을 목표로 합니다. 이러한 경쟁적인 학습이 지속되다 보면 어느 순간 위조지폐범은 진짜와 다를 바 없는 위조지폐를 만들 수 있게 되고 경찰이 위조지폐를 구별할 수 있는 확률도 가장 헷갈리는 50%로 수렴하게 되어 경찰은 위조지폐와 실제 화폐를 구분할 수 없는 상태에 이르게 됩니다. 여기서 경찰은 분류 모델, 위조지폐범은 생성 모델을 의미하며, GAN에는 최대한 진짜 같은 데이터를 생성하려는 생성 모델과 진짜와 가짜를 판별하려는 분류 모델이 각각 존재하여 서로 적대적으로 학습합니다.
+            <br><br></span>
+    </div>
+
+    <div>
+        <span>2. GAN은 강화학습(Reinforcement learning) 중 하나이다.</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">O</mat-radio-button>
+            <mat-radio-button value="2" [checked]="true">X</mat-radio-button>
+        </mat-radio-group>
+        <span>
+            해설: GAN은 비지도학습(Unsupervised learning) 중 하나이다.<br>
+            * 지도 학습(Supervised learning) : 이름에서 알 수 있듯이 컴퓨터에게 정답(Label)이 무엇인지 알려주면서 컴퓨터를 학습을 하는 방법<br>
+            * 비지도 학습 (Unsupervised Learning) : 지도 학습과는 달리 정답을 알려주지 않고 비슷한 데이터를 군집화 하여 미래를 예측하는 학습 방법. 라벨링이 되어있지 않은 데이터로부터 패턴이나 형태를 찾아야하기 때문에 어려움. 실제로 지도 학습에서 적절한 특징(Feature)을 찾아내기 위한 전처리 방법으로 비지도 학습을 사용하기도 함<br>
+            * 강화 학습(Reinforcement Learning) : 행동 심리학에서 나온 이론으로 분류할 수 있는 데이터가 존재하는 것도 아니고 데이터가 있다 해도 정답이 따로 정해져 있지도 않으며, 자신이 한 행동에 대해 보상(reward)을 받으며 학습하는 것   <br><br></span>
+    </div>
+
+    <div>
+        <span>3. GAN을 경찰과 위조지폐범 사이의 게임에 비유했었는데, 경찰의 역할에 맞는 모델은 무엇인가?</span>
+        <input type="text" value="분류기(discriminator)"/>
+        <span>해설: <br>
+            * 위조지폐범 : 최대한 진짜 같은 화폐를 만들어(생성) 경찰을 속이기 위해 노력함 <br>
+            * 경찰 : 진짜 화폐와 가짜 화폐를 완벽히 판별(분류)하여 위조지폐범을 검거하는 것을 목표로 함 <br>
+            이러한 경쟁적인 학습이 지속되다 보면 어느 순간 위조지폐범은 진짜와 다를 바 없는 위조지폐를 만들 수 있게 되고 경찰이 위조지폐를 구별할 수 있는 확률도 가장 헷갈리는 50%로 수렴하게 되어 경찰은 위조지폐와 실제 화폐를 구분할 수 없는 상태에 이르게 된다. <br><br></span>
+    </div>
+
+    <div>
+        <span>4. GAN의 특징으로 알맞지 않은 것은?</span>
+        <mat-radio-group [(ngModel)]="answer4" fxLayout="column">
+            <mat-radio-button value="1">생성 모델을 먼저 학습시킨 후 분류 모델을 학습시키며, 이 과정을 서로 주고받으면서 반복한다.</mat-radio-button>
+            <mat-radio-button value="2">Ian Goodfellow가 제안한 알고리즘이다.</mat-radio-button>
+            <mat-radio-button value="3">생성 모델은 분류에 성공할 확률을 낮추려 하고, 분류 모델은 분류에 성공할 확률을 높이려 한다.</mat-radio-button>
+            <mat-radio-button value="4">이미지 생성에 적합한 알고리즘이다.</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: 분류 모델을 먼저 학습시킨 후 생성모델을 학습시킨다. 분류 모델의 학습은 크게 두 가지 단계로 이루어져 있다. 하나는 진짜 데이터를 입력해서 네트워크가 해당 데이터를 진짜로 분류하도록 학습시키는 과정이고 두 번째는 첫 번째와 반대로 생성 모델에서 생성한 가짜 데이터를 입력해서 해당 데이터를 가짜로 분류하도록 학습하는 과정이다. 이 과정을 통해 분류 모델은 진짜 데이터를 진짜로, 가짜 데이터를 가짜로 분류할 수 있게 된다. <br><br></span>
+    </div>
+
+</div>
