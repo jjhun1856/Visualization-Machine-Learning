@@ -1,0 +1,77 @@
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+    <div>
+        <span>1. 유전 알고리즘(Genetic algorithm)의 특징으로 알맞지 않은 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">John Holland가 다윈 진화론의 적자생존에 기반하여 개발한 최적화 연산 방법이다.</mat-radio-button>
+            <mat-radio-button value="2">이론적으로 전역 최적점을 찾을 수 있지만, 수학적으로 명확하게 정의되지 않은 문제에는 적용할 수 없다. </mat-radio-button>
+            <mat-radio-button value="3">염색체(chromosome), 유전자(gene), 자손(offspring), 적합도(fitness)라는 개념을 가진다.</mat-radio-button>
+            <mat-radio-button value="4">특정시간 t에 존재하는 염색체들의 집합으로부터 적합도가 가장 좋은 염색체를 선택하고, 선택된 해의 방향으로 검색을 반복하면서 최적해를 찾아가는 구조로 동작한다. </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>2. 유전 알고리즘(Genetic algorithm)의 순서로 알맞은 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">최초 염색체 생성(Initialization) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="2">최초 염색체 생성(Initialization) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 우성 염색체 선별(Selection) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="3">최초 염색체 생성(Initialization) -> 세대 적합도 평가(Fitness evaluation) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="4">최초 염색체 생성(Initialization) -> 우성 염색체 선별(Selection) -> 세대 적합도 평가(Fitness evaluation) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <div>
+        <span>3. 유전 알고리즘(Genetic algorithm)에서 쓰이는 개념이 아닌 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">자손(offspring)</mat-radio-button>
+            <mat-radio-button value="2">염색체(chromosome)</mat-radio-button>
+            <mat-radio-button value="3">유전자(gene)</mat-radio-button>
+            <mat-radio-button value="4">최소제곱법(least squared method)</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <button (click)="submit()">제출</button>
+</div>
+
+<div *ngIf="isSubmit">
+    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    
+    <div>
+        <span>1. 유전 알고리즘(Genetic algorithm)의 특징으로 알맞지 않은 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">John Holland가 다윈 진화론의 적자생존에 기반하여 개발한 최적화 연산 방법이다.</mat-radio-button>
+            <mat-radio-button value="2" [checked]="true">이론적으로 전역 최적점을 찾을 수 있지만, 수학적으로 명확하게 정의되지 않은 문제에는 적용할 수 없다. </mat-radio-button>
+            <mat-radio-button value="3">염색체(chromosome), 유전자(gene), 자손(offspring), 적합도(fitness)라는 개념을 가진다.</mat-radio-button>
+            <mat-radio-button value="4">특정시간 t에 존재하는 염색체들의 집합으로부터 적합도가 가장 좋은 염색체를 선택하고, 선택된 해의 방향으로 검색을 반복하면서 최적해를 찾아가는 구조로 동작한다. </mat-radio-button>
+        </mat-radio-group>
+        <span>해설: 유전 알고리즘(Genetic algorithm)은 이론적으로 전역 최적점을 찾을 수 있으며, 수학적으로 명확하게 정의되지 않은 문제에도 적용할 수 있기 때문에 매우 유용하게 이용된다. <br><br></span>
+    </div>
+
+    <div>
+        <span>2. 유전 알고리즘(Genetic algorithm)의 순서로 알맞은 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">최초 염색체 생성(Initialization) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="2">최초 염색체 생성(Initialization) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 우성 염색체 선별(Selection) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="3" [checked]="true">최초 염색체 생성(Initialization) -> 세대 적합도 평가(Fitness evaluation) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+            <mat-radio-button value="4">최초 염색체 생성(Initialization) -> 우성 염색체 선별(Selection) -> 세대 적합도 평가(Fitness evaluation) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 다음 세대 생성(Update generation)</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: 유전 알고리즘(Genetic algorithm)은 다음과 같은 순서로 이루어진다.<br>
+            1) 최초 염색체 생성(Initialization)<br>
+            2) 세대 적합도 평가(Fitness evaluation)<br>
+            3) 우성 염색체 선별(Selection)<br>
+            4) 세대 교차(Crossover)와 돌연변이(Mutation)<br>
+            5) 다음 세대 생성(Update generation)<br><br></span>
+    </div>
+
+    <div>
+        <span>3. 유전 알고리즘(Genetic algorithm)에서 쓰이는 개념이 아닌 것은?</span>
+        <mat-radio-group fxLayout="column">
+            <mat-radio-button value="1">자손(offspring)</mat-radio-button>
+            <mat-radio-button value="2">염색체(chromosome)</mat-radio-button>
+            <mat-radio-button value="3">유전자(gene)</mat-radio-button>
+            <mat-radio-button value="4" [checked]="true">최소제곱법(least squared method)</mat-radio-button>
+        </mat-radio-group>
+        <span>해설: 최소제곱법이 아니라 적합도 (fitness)로, 어떠한 염색체가 갖고 있는 고유값으로써, 해당 문제에 대해 염색체가 표현하는 해가 얼마나 적합한지를 나타낸다. 
+            <br><br></span>
+    </div>
+
+</div>
