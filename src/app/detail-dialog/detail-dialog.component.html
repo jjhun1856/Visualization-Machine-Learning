@@ -12,4 +12,8 @@
             <span [style.opacity]="detailData.isStep && imageIndex < detailData.image.length - 1 ? 0 : 1">{{linear}}</span>
         </ng-container>
     </div>
+    <div *ngIf="detailData.stateNum">
+        <span *ngIf="detailData.stateNum === '1'">x = {{x}}, y = {{y}}</span>
+        <span *ngIf="detailData.stateNum === '3'">y = {{W}}x {{b > 0 ? '+ ' + b : '- ' + -1 * b}}</span>
+    </div>
 </div>

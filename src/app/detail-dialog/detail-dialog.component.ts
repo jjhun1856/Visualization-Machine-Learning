@@ -19,6 +19,11 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     D_loss: number;
     G_loss: number;
 
+    x: number = 0;
+    y: number = 0;
+    W: number = 0;
+    b: number = 0;
+
     constructor(
         @Inject(MAT_DIALOG_DATA) private data: any,
     ) {
@@ -79,6 +84,16 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
                 setTimeout(() => {
                     this.image = this.detailData.image[i];
                     this.imageIndex = i;
+                    this.W = this.detailData.graphData[i].W;
+                    this.b = this.detailData.graphData[i].b;
+                }, 500 * (i + 1));
+            }
+        } else if (this.detailData.stateNum === '1') {
+            for (let i = 0; i <= this.detailData.image.length - 1; i++) {
+                setTimeout(() => {
+                    this.image = this.detailData.image[i];
+                    this.x = this.detailData.graphData[i].x;
+                    this.y = this.detailData.graphData[i].y;
                 }, 500 * (i + 1));
             }
         } else {
