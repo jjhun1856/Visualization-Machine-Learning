@@ -40,8 +40,8 @@ export class CnnComponent implements OnInit {
             }
             case 2: {
                 data = {
-                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n마지막 이미지에 필터 적용해서 추출한 특징맵 예시이다.',
-                    image: ['/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_2-0000.jpg', '/assets/result-img/cnn/CNN_02_2-0001.jpg', '/assets/result-img/cnn/CNN_02_2-0002.jpg', '/assets/result-img/cnn/CNN_02_2-0003.jpg', '/assets/result-img/cnn/CNN_02_2-0004.jpg', '/assets/result-img/cnn/CNN_02_2-0005.jpg', '/assets/result-img/cnn/CNN_02_2-0006.jpg', '/assets/result-img/cnn/CNN_02_2-0007.jpg', '/assets/result-img/cnn/CNN_02_2-0008.jpg', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png', '/assets/result-img/cnn/CNN_02_3.png'],
+                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n',
+                    image: ['/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_02_2-0000.jpg', '/assets/result-img/cnn/CNN_02_2-0001.jpg', '/assets/result-img/cnn/CNN_02_2-0002.jpg', '/assets/result-img/cnn/CNN_02_2-0003.jpg', '/assets/result-img/cnn/CNN_02_2-0004.jpg', '/assets/result-img/cnn/CNN_02_2-0005.jpg', '/assets/result-img/cnn/CNN_02_2-0006.jpg', '/assets/result-img/cnn/CNN_02_2-0007.jpg', '/assets/result-img/cnn/CNN_02_2-0008.jpg',],
                     timeExpand: null,
                 }
                 break;
