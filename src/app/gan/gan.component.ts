@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
+import {GanProblemComponent} from './gan-problem/gan-problem.component';
 
 @Component({
     selector: 'app-gan',
@@ -67,6 +68,13 @@ export class GanComponent implements OnInit {
             width: '1080px',
             height: '640px',
             data: data
+        });
+    }
+
+    openProblemDialog() {
+        this.dialog.open(GanProblemComponent, {
+            width: '1080px',
+            height: '640px'
         });
     }
 }

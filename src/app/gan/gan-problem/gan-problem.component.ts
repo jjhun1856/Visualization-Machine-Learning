@@ -30,7 +30,7 @@ export class GanProblemComponent implements OnInit {
         if (this.answer3.trim() === '분류기' || this.answer3.toLowerCase() === 'discriminator') {
             this.score += 25;
         }
-        if (this.answer3 == '1') {
+        if (this.answer4 == '1') {
             this.score += 25;
         }
 

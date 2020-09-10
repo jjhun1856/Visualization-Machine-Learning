@@ -9,35 +9,168 @@
         <h1 class="title">Generative Adversarial Network</h1>
     </header>
 
-    <section id="main">
-        <h2> 1. Abstract</h2>
-        <div class="description">
-            <div fxLayout="column" fxLayoutAlign="center center">
-                <img src="assets/result-img/gan/gan_1.png"/>
+    <section id="main" fxLayout="column" fxLayoutGap="16px">
+        <div>
+            <h2> 1. Abstract</h2>
+            <div class="description">
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <img src="assets/result-img/gan/gan_1.png"/>
 
-                <p><br>
-                    *위조지폐범 : 최대한 진짜 같은 화폐를 만들어(생성) 경찰을 속이기 위해 노력함.<br>
-                    *경찰 : 진짜 화폐와 가짜 화폐를 완벽히 판별(분류)하여 위조지폐범을 검거하는 것을 목표로 함.<br>
+                    <p><br>
+                        *위조지폐범 : 최대한 진짜 같은 화폐를 만들어(생성) 경찰을 속이기 위해 노력함.<br>
+                        *경찰 : 진짜 화폐와 가짜 화폐를 완벽히 판별(분류)하여 위조지폐범을 검거하는 것을 목표로 함.<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>2. 특징</h2>
+            <div class="description">
+                <p>
+                    &nbsp;&nbsp;이러한 경쟁적인 학습이 지속되다 보면 어느 순간 위조지폐범은 진짜와 다를 바 없는 위조지폐를 만들 수 있게 되고 경찰이 위조지폐를 구별할 수 있는 확률도 가장 헷갈리는 50%로 수렴하게
+                    되어 경찰은 위조지폐와 실제 화폐를 구분할 수 없는 상태에 이르게 됩니다.<br>
+                    여기서 경찰은 discriminator, 위조지폐범은 generator를 의미하며, GAN에는 최대한 진짜 같은 데이터를 생성하려는 generator와 진짜와 가짜를 판별하려는
+                    discriminator가 각각 존재하여 서로 적대적으로 학습합니다.
                 </p>
             </div>
-
         </div>
 
-        <h2>2. 특징</h2>
-        <div class="description">
-            <p>
-                &nbsp;&nbsp;이러한 경쟁적인 학습이 지속되다 보면 어느 순간 위조지폐범은 진짜와 다를 바 없는 위조지폐를 만들 수 있게 되고 경찰이 위조지폐를 구별할 수 있는 확률도 가장 헷갈리는 50%로 수렴하게
-                되어 경찰은 위조지폐와 실제 화폐를 구분할 수 없는 상태에 이르게 됩니다.<br>
-                여기서 경찰은 discriminator, 위조지폐범은 generator를 의미하며, GAN에는 최대한 진짜 같은 데이터를 생성하려는 generator와 진짜와 가짜를 판별하려는
-                discriminator가 각각 존재하여 서로 적대적으로 학습합니다.
-            </p>
+        <div>
+            <h2>3. 시각화</h2>
+            <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                <span (click)="OpenDetailDialog(1)">learning rate, epoch, batch size, noise 입력</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(2)">모델 학습하기</span>
+            </div>
         </div>
 
-        <h2>3. 시각화</h2>
-        <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-            <span (click)="OpenDetailDialog(1)">learning rate, epoch, batch size, noise 입력</span>
-            <mat-icon>keyboard_arrow_right</mat-icon>
-            <span (click)="OpenDetailDialog(2)">모델 학습하기</span>
+        <div>
+            <h2>4. code</h2>
+            <div class="code" fxLayoutAlign="center center">
+                <pre>
+import numpy as np
+from keras.layers import *
+import keras.models as km
+import keras.optimizers as ko
+from keras.datasets import mnist
+
+batch_size = 16
+lr = 0.0001
+
+def noise_gen(batch_size, z_dim):
+noise = np.zeros((batch_size, z_dim), dtype=np.float32)
+for i in range(batch_size):
+noise[i, :] = np.random.uniform(-1, 1, z_dim)
+return noise
+
+# Changes the traiable argument for all the layers of model
+# to the boolean argument "trainable"
+def make_trainable(model, trainable):
+model.trainable = trainable
+for l in model.layers:
+l.trainable = trainable
+
+# --------------------Generator Model--------------------
+
+g_input = Input(shape=(100,))
+
+g_hidden = Dense(1024, activation='relu')(g_input)
+g_hidden = Dense(7*7*128, activation='relu')(g_hidden)
+g_hidden = BatchNormalization()(g_hidden)
+g_hidden = Reshape((7,7,128))(g_hidden)
+
+g_hidden = Deconvolution2D(64,5,5, (None, 14, 14, 64), subsample=(2,2),
+border_mode='same', activation='relu')(g_hidden)
+g_hidden = BatchNormalization()(g_hidden)
+g_output = Deconvolution2D(1,5,5, (None, 28, 28, 1), subsample=(2,2),
+border_mode='same')(g_hidden)
+
+G = km.Model(input=g_input,output=g_output)
+G.compile(loss='binary_crossentropy', optimizer=ko.SGD(lr=lr, momentum=0.9, nesterov=True))
+G.summary()
+
+# --------------------Discriminator Model--------------------
+
+d_input = Input(shape=(28,28,1))
+
+d_l1 = Convolution2D(64,5,5, subsample=(2,2))
+d_hidden_1 = d_l1(d_input)
+d_l2 = LeakyReLU(alpha=0.2)
+d_hidden_2 = d_l2(d_hidden_1)
+
+d_l3 = Convolution2D(128,5,5, subsample=(2,2))
+d_hidden_3 = d_l3(d_hidden_2)
+d_l4 = BatchNormalization()
+d_hidden_4 = d_l4(d_hidden_3)
+d_l5 = LeakyReLU(alpha=0.2)
+d_hidden_5 = d_l5(d_hidden_4)
+
+d_l6 = Flatten()
+d_hidden_6 = d_l6(d_hidden_5)
+d_l7 = Dense(1, activation='sigmoid')
+d_output = d_l7(d_hidden_6)
+
+D = km.Model(input=d_input,output=d_output)
+D.compile(loss='binary_crossentropy',optimizer=ko.SGD(lr=lr,momentum=0.9, nesterov=True))
+D.summary()
+
+# --------------------GAN Model--------------------
+make_trainable(D,False)
+
+gan_input = Input(shape=(100,))
+gan_hidden = G(gan_input)
+gan_hidden = d_l1(gan_hidden)
+gan_hidden = d_l2(gan_hidden)
+gan_hidden = d_l3(gan_hidden)
+gan_hidden = d_l4(gan_hidden)
+gan_hidden = d_l5(gan_hidden)
+gan_hidden = d_l6(gan_hidden)
+gan_output = d_l7(gan_hidden)
+
+GAN = km.Model(input=gan_input,output=gan_output)
+GAN.compile(loss='binary_crossentropy',optimizer=ko.SGD(lr=lr, momentum=0.9, nesterov=True))
+GAN.summary()
+
+# --------------------Main Code--------------------
+(X, _), _ = mnist.load_data()
+X = X / 255.
+X = X[:, :, :, np.newaxis]
+
+X_batch = X[0:batch_size, :]
+Z1_batch = noise_gen(batch_size, 100)
+Z2_batch = noise_gen(batch_size, 100)
+
+print(type(X_batch),X_batch.shape)
+print(type(Z1_batch),Z1_batch.shape)
+
+fake_batch = G.predict(Z1_batch)
+real_batch = X_batch
+print('--------------------Fake Image Generated!--------------------')
+
+combined_X_batch = np.concatenate((real_batch, fake_batch))
+combined_y_batch = np.concatenate((np.ones((batch_size, 1)), np.zeros((batch_size, 1))))
+print('real_batch=&#123;}, fake_batch=&#123;}'.format(real_batch.shape, fake_batch.shape))
+print(type(combined_X_batch),combined_X_batch.dtype,combined_X_batch.shape)
+print(type(combined_y_batch),combined_y_batch.dtype,combined_y_batch.shape)
+make_trainable(D,True)
+d_loss = D.train_on_batch(combined_X_batch, combined_y_batch)
+print('--------------------Discriminator trained!--------------------')
+print(d_loss)
+
+make_trainable(D,False)
+g_loss = GAN.train_on_batch(Z2_batch, np.ones((batch_size, 1)))
+print('--------------------GAN trained!--------------------')
+print(g_loss)
+                </pre>
+            </div>
+        </div>
+
+        <div>
+            <h2>5. 문제 풀기</h2>
+            <div fxLayoutAlign="center center">
+                <button (click)="openProblemDialog()">문제 풀기</button>
+            </div>
         </div>
     </section>
 

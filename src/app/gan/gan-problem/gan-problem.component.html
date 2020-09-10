@@ -39,7 +39,7 @@
     <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
     <div>
         <span>1. GAN 알고리즘에 해당하는 것은?</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">세대적 적대 신경망(Generational Adversarial Network)</mat-radio-button>
             <mat-radio-button value="2" [checked]="true">생성적 적대 신경망(Generative Adversarial Network)</mat-radio-button>
             <mat-radio-button value="3">기하학 적대 신경망(Geometic Adversarial Network)</mat-radio-button>
@@ -51,7 +51,7 @@
 
     <div>
         <span>2. GAN은 강화학습(Reinforcement learning) 중 하나이다.</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">O</mat-radio-button>
             <mat-radio-button value="2" [checked]="true">X</mat-radio-button>
         </mat-radio-group>
@@ -64,7 +64,7 @@
 
     <div>
         <span>3. GAN을 경찰과 위조지폐범 사이의 게임에 비유했었는데, 경찰의 역할에 맞는 모델은 무엇인가?</span>
-        <input type="text" value="분류기(discriminator)"/>
+        <input type="text" value="분류기(discriminator)" disabled/>
         <span>해설: <br>
             * 위조지폐범 : 최대한 진짜 같은 화폐를 만들어(생성) 경찰을 속이기 위해 노력함 <br>
             * 경찰 : 진짜 화폐와 가짜 화폐를 완벽히 판별(분류)하여 위조지폐범을 검거하는 것을 목표로 함 <br>
@@ -73,8 +73,8 @@
 
     <div>
         <span>4. GAN의 특징으로 알맞지 않은 것은?</span>
-        <mat-radio-group [(ngModel)]="answer4" fxLayout="column">
-            <mat-radio-button value="1">생성 모델을 먼저 학습시킨 후 분류 모델을 학습시키며, 이 과정을 서로 주고받으면서 반복한다.</mat-radio-button>
+        <mat-radio-group fxLayout="column" disabled>
+            <mat-radio-button value="1" [checked]="true">생성 모델을 먼저 학습시킨 후 분류 모델을 학습시키며, 이 과정을 서로 주고받으면서 반복한다.</mat-radio-button>
             <mat-radio-button value="2">Ian Goodfellow가 제안한 알고리즘이다.</mat-radio-button>
             <mat-radio-button value="3">생성 모델은 분류에 성공할 확률을 낮추려 하고, 분류 모델은 분류에 성공할 확률을 높이려 한다.</mat-radio-button>
             <mat-radio-button value="4">이미지 생성에 적합한 알고리즘이다.</mat-radio-button>
