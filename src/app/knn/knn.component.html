@@ -48,9 +48,9 @@
                 <button (click)="dataSelect()">확인</button>
             </div>
             <div *ngIf="selectData" class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-                <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값({{this.k}}) 입력</span>
-                <mat-icon>keyboard_arrow_right</mat-icon>
-                <span (click)="OpenDetailDialog(2)">분류할 데이터{{this.xy}} 입력</span>
+                <!-- <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값({{this.k}}) 입력</span> -->
+                <!-- <mat-icon>keyboard_arrow_right</mat-icon> -->
+                <span (click)="OpenDetailDialog(2)">데이터{{this.xy}},  K값({{this.k}}) 입력</span>
                 <mat-icon>keyboard_arrow_right</mat-icon>
                 <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>
                 <mat-icon>keyboard_arrow_right</mat-icon>
