@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {DetailDialogComponent} from '../detail-dialog/detail-dialog.component';
 import { ViewEncapsulation } from '@angular/core';
+import {CnnProblemComponent} from './cnn-problem/cnn-problem.component';
 
 @Component({
     selector: 'app-cnn',
@@ -117,6 +118,13 @@ export class CnnComponent implements OnInit {
             width: '1080px',
             height: '640px',
             data: data
+        });
+    }
+
+    openProblemDialog() {
+        this.dialog.open(CnnProblemComponent, {
+            width: '1080px',
+            height: '640px'
         });
     }
 }

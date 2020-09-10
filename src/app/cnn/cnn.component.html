@@ -9,69 +9,180 @@
         <h1 class="title">Convolutional Neural Networks</h1>
     </header>
 
-    <section id="main">
-        <h2>1. Abstract : </h2>
-        <div class="description">
-            <p>
-                &nbsp;&nbsp;CNN알고리즘은 Convolutional Neural Networks, 즉, 합성곱 신경망으로 딥러닝 알고리즘 중 하나이다.<br>
-                &nbsp;&nbsp;합성곱 신경망은 기존 이미지 분류 알고리즘인 전결합층 인공신경망의 단점을 극복하기 위해 제안되었다.<br>
-                &nbsp;&nbsp;특징을 추출하는 Feature Extraction 부분과 추출된 특징을 바탕으로 분류하는 Classification으로 나눠진다.<br>
-                <br>
-            </p>
-        </div>
-        <h2>2. 특징 : </h2>
-        <div class="description">
-            <p>
-                &nbsp;&nbsp;- 다중 클래스 분류를 위해 Softmax회귀를 사용한다.<br>
-                &nbsp;&nbsp;- 이미지 분류를 위해 1차원 평면화 시키는 과정이 필요하다.<br>
-                &nbsp;&nbsp;- 기존 전결합층(Fully Connected)인공신경망은 평면화(Flatten)과정에서 공간정보가 손실된다.<br>
-                &nbsp;&nbsp;- (핵심) 3차원 이미지를 특징을 학습하기위해 평면화과정 이전에 Feature Extraction부분이 추가되었다.<br>
-                &nbsp;&nbsp;- Feature Extraction : Convolution + Relu + Pooling<br>
-                &nbsp;&nbsp;- Classification : Flatten + Relu + Softmax<br>
-                &nbsp;&nbsp;- 3차원 데이터 특징 추출 및 공간정보 학습이 가능하며 위치변화에 강하다.<br>
-                
-            </p>
+    <section id="main" fxLayout="column" fxLayoutGap="16px">
+        <div>
+            <h2>1. Abstract : </h2>
+            <div class="description">
+                <p>
+                    &nbsp;&nbsp;CNN알고리즘은 Convolutional Neural Networks, 즉, 합성곱 신경망으로 딥러닝 알고리즘 중 하나이다.<br>
+                    &nbsp;&nbsp;합성곱 신경망은 기존 이미지 분류 알고리즘인 전결합층 인공신경망의 단점을 극복하기 위해 제안되었다.<br>
+                    &nbsp;&nbsp;특징을 추출하는 Feature Extraction 부분과 추출된 특징을 바탕으로 분류하는 Classification으로 나눠진다.<br>
+                    <br>
+                </p>
+            </div>
         </div>
 
-        <h2>3. 시각화 : </h2>
-        <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-            <div fxLayout="column">
-                <img src="assets/result-img/cnn/CNN.png"/>
+        <div>
+            <h2>2. 특징 : </h2>
+            <div class="description">
+                <p>
+                    &nbsp;&nbsp;- 다중 클래스 분류를 위해 Softmax회귀를 사용한다.<br>
+                    &nbsp;&nbsp;- 이미지 분류를 위해 1차원 평면화 시키는 과정이 필요하다.<br>
+                    &nbsp;&nbsp;- 기존 전결합층(Fully Connected)인공신경망은 평면화(Flatten)과정에서 공간정보가 손실된다.<br>
+                    &nbsp;&nbsp;- (핵심) 3차원 이미지를 특징을 학습하기위해 평면화과정 이전에 Feature Extraction부분이 추가되었다.<br>
+                    &nbsp;&nbsp;- Feature Extraction : Convolution + Relu + Pooling<br>
+                    &nbsp;&nbsp;- Classification : Flatten + Relu + Softmax<br>
+                    &nbsp;&nbsp;- 3차원 데이터 특징 추출 및 공간정보 학습이 가능하며 위치변화에 강하다.<br>
+                </p>
+            </div>
+        </div>
 
-                <div class="btn-step" fxLayout="row">
-                    <button (click)="OpenDetailDialog(1)">Input</button>
+        <div>
+            <h2>3. 시각화 : </h2>
+            <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                <div fxLayout="column">
+                    <img src="assets/result-img/cnn/CNN.png"/>
 
-                    <div fxLayout="column">
-                        <div fxLayout="row">
-                            <div fxLayout="column">
-                                <button (click)="OpenDetailDialog(2)">Conv1</button>
-                                <button (click)="OpenDetailDialog(3)">Conv2</button>
+                    <div class="btn-step" fxLayout="row">
+                        <button (click)="OpenDetailDialog(1)">Input</button>
+
+                        <div fxLayout="column">
+                            <div fxLayout="row">
+                                <div fxLayout="column">
+                                    <button (click)="OpenDetailDialog(2)">Conv1</button>
+                                    <button (click)="OpenDetailDialog(3)">Conv2</button>
+                                </div>
+
+                                <div fxLayout="column">
+                                    <button (click)="OpenDetailDialog(4)">Relu</button>
+                                </div>
                             </div>
 
-                            <div fxLayout="column">
-                                <button (click)="OpenDetailDialog(4)">Relu</button>
-                            </div>
+                            <button (click)="OpenDetailDialog(6)">Feature Extraction</button>
                         </div>
 
-                        <button (click)="OpenDetailDialog(6)">Feature Extraction</button>
+                        <button (click)="OpenDetailDialog(5)">Pooling</button>
+
+                        <button (click)="OpenDetailDialog(7)">Flatten</button>
+
+                        <button (click)="OpenDetailDialog(8)">Softmax</button>
                     </div>
-
-                    <button (click)="OpenDetailDialog(5)">Pooling</button>
-
-                    <button (click)="OpenDetailDialog(7)">Flatten</button>
-
-                    <button (click)="OpenDetailDialog(8)">Softmax</button>
                 </div>
             </div>
-            <!--            <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값(K) 입력</span>-->
-            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
-            <!--            <span (click)="OpenDetailDialog(2)">분류할 데이터(X, Y) 입력</span>-->
-            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
-            <!--            <span (click)="OpenDetailDialog(3)">모든 데이터셋과 거리 계산</span>-->
-            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
-            <!--            <span (click)="OpenDetailDialog(4)">거리가 짧은 순서로 K(K)개 만큼 선택</span>-->
-            <!--            <mat-icon>keyboard_arrow_right</mat-icon>-->
-            <!--            <span (click)="OpenDetailDialog(5)">선택한 값 중 다수 값으로 분류</span>-->
+        </div>
+
+        <div>
+            <h2>4. code</h2>
+            <div class="code" fxLayoutAlign="center center">
+                <pre>
+"""Convolutional Neural Network Estimator for MNIST, built with tf.layers."""
+import numpy as np
+import tensorflow as tf
+tf.logging.set_verbosity(tf.logging.INFO)
+
+
+def cnn_model_fn(features, labels, mode):
+  """Model function for CNN."""
+  input_layer = tf.reshape(features["x"], [-1, 28, 28, 1])
+
+  # Convolutional Layer #1
+  conv1 = tf.layers.conv2d(...)
+
+  # Pooling Layer #1
+  pool1 = tf.layers.max_pooling2d(...)
+
+
+  # Flatten tensor into a batch of vectors
+  pool2_flat = tf.reshape(...)
+
+  # Dense Layer
+  dense = tf.layers.dense(inputs=pool2_flat, units=1024, activation=tf.nn.relu)
+
+  # Add dropout operation; 0.6 probability that element will be kept
+  dropout = tf.layers.dropout(
+      inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
+
+  # Logits layer
+  logits = tf.layers.dense(inputs=dropout, units=10)
+
+  predictions = &#123;
+    # Generate predictions (for PREDICT and EVAL mode)
+    "classes": tf.argmax(input=logits, axis=1),
+    # Add `softmax_tensor` to the graph. It is used for PREDICT and by the
+    # `logging_hook`.
+    "probabilities": tf.nn.softmax(logits, name="softmax_tensor")
+  }
+  if mode == tf.estimator.ModeKeys.PREDICT:
+    return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
+
+  # Calculate Loss (for both TRAIN and EVAL modes)
+  loss = tf.losses.sparse_softmax_cross_entropy(labels=labels, logits=logits)
+
+  # Configure the Training Op (for TRAIN mode)
+  if mode == tf.estimator.ModeKeys.TRAIN:
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.001)
+    train_op = optimizer.minimize(
+        loss=loss,
+        global_step=tf.train.get_global_step())
+    return tf.estimator.EstimatorSpec(mode=mode, loss=loss, train_op=train_op)
+
+  # Add evaluation metrics (for EVAL mode)
+  eval_metric_ops = &#123;
+                    "accuracy": tf.metrics.accuracy(
+                        labels=labels, predictions=predictions["classes"])}
+  return tf.estimator.EstimatorSpec(
+      mode=mode, loss=loss, eval_metric_ops=eval_metric_ops)
+
+def main(unused_argv):
+  # Load training and eval data
+  .
+  .
+  .
+
+  # Create the Estimator
+  mnist_classifier = tf.estimator.Estimator(
+      model_fn=cnn_model_fn, model_dir="/tmp/mnist_convnet_model")
+
+  # Set up logging for predictions
+  # Log the values in the "Softmax" tensor with label "probabilities"
+  tensors_to_log = &#123;"probabilities": "softmax_tensor"}
+  logging_hook = tf.train.LoggingTensorHook(
+      tensors=tensors_to_log, every_n_iter=50)
+
+  # Train the model
+  train_input_fn = tf.estimator.inputs.numpy_input_fn(
+      x=&#123;"x": train_data},
+      y=train_labels,
+      batch_size=100,
+      num_epochs=None,
+      shuffle=True)
+
+  mnist_classifier.train(
+      input_fn=train_input_fn,
+      steps=2000,
+      hooks=[logging_hook])
+
+  # Evaluate the model and print results
+  eval_input_fn = tf.estimator.inputs.numpy_input_fn(
+      x=&#123;"x": eval_data},
+      y=eval_labels,
+      num_epochs=1,
+      shuffle=False)
+  eval_results = mnist_classifier.evaluate(input_fn=eval_input_fn)
+  print(eval_results)
+
+
+if __name__ == "__main__":
+  tf.app.run()
+                </pre>
+            </div>
+        </div>
+
+        <div>
+            <h2>5. 문제 풀기</h2>
+            <div fxLayoutAlign="center center">
+                <button (click)="openProblemDialog()">문제 풀기</button>
+            </div>
         </div>
     </section>
 

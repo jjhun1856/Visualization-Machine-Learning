@@ -59,40 +59,40 @@
     <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
     <div>
         <span>1. CNN의 뜻은?</span>
-        <input type="text" value="Convolutional Neural Networks"/>
+        <input type="text" value="Convolutional Neural Networks" disabled/>
         <span>해설: Convolutional Neural Networks, 즉 합성곱 신경망입니다.<br><br></span>
     </div>
 
     <div>
         <span>2. CNN알고리즘은 어디에 속하는가?</span>
-        <input type="text" value="답러닝"/>
+        <input type="text" value="답러닝" disabled/>
         <span>해설: 인간의 뉴런과 비슷한 인공신경망을 활용한 알고리즘으로 딥러닝에 속합니다.<br><br></span>
     </div>
 
     <div>
         <span>3. CNN알고리즘은 크게 두 가지 파트로 나뉜다. 각각을 쓰시오.</span>
-        <input type="text" value="Feature Extraction"/>
-        <input type="text" value="Classification"/>
+        <input type="text" value="Feature Extraction" disabled/>
+        <input type="text" value="Classification" disabled/>
         <span>해설: 여러번의 Feature Extraction을 거쳐 학습한 후, Classification에서 이미지 분류합니다.<br><br></span>
     </div>
 
     <div>
         <span>4. 특징을 추출하는 Feature Extraction부분은 세 파트로 나뉜다. 각각을 쓰시오.</span>
-        <input type="text" value="Convolution"/>
-        <input type="text" value="Relu"/>
-        <input type="text" value="Pooling"/>
+        <input type="text" value="Convolution" disabled/>
+        <input type="text" value="Relu" disabled/>
+        <input type="text" value="Pooling" disabled/>
         <span>해설: Convolution = 특징추출, Relu = 비선형데이터, Pooling = 특징압축 <br><br></span>
     </div>
 
     <div>
         <span>5. CNN알고리즘에서 3차원 이미지특징을 추출하기 위해 합성곱 과정에서 쓰이는 파라미터를 뭐라고 하는가?</span>
-        <input type="text" value="Filter(Kernel)"/>
+        <input type="text" value="Filter(Kernel)" disabled/>
         <span>해설: Filter는 CNN알고리즘에서 특징을 추출하기위한 파라미터로 매우 다양한 종류의 필터가 존재합니다.<br><br></span>
     </div>
 
     <div>
         <span>6. 합성곱(Convolution)처리 결과로 나오는 것은?</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">Stride</mat-radio-button>
             <mat-radio-button value="2">Channel</mat-radio-button>
             <mat-radio-button value="3" [checked]="true">Feature map</mat-radio-button>
@@ -103,7 +103,7 @@
 
     <div>
         <span>7. CNN알고리즘의 특징으로 옳지 않은 것은?</span>
-        <mat-radio-group  fxLayout="column">
+        <mat-radio-group  fxLayout="column" disabled>
             <mat-radio-button value="1">3차원 데이터 특징 추출이 가능하다.</mat-radio-button>
             <mat-radio-button value="2">분류 알고리즘으로 주로 Softmax회귀를 사용한다.</mat-radio-button>
             <mat-radio-button value="3" [checked]="true">이미지 위치 변화에 민감하다.</mat-radio-button>
@@ -114,9 +114,7 @@
 
     <div>
         <span>8. 합성곱 과정에서 출력데이터의 크기가 계속해서 줄어드는 것을 막기 위해 사용하는 것은?</span>
-        <input type="text" value="Padding"/>
+        <input type="text" value="Padding" disabled/>
         <span>해설: 주로 0 Padding을 사용하여 출력데이터 크기를 적당히 유지해 줍니다.<br><br></span>
     </div>
-    
-
 </div>

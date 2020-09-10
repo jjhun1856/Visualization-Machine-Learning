@@ -21,6 +21,8 @@ import { KnnProblemComponent } from './knn/knn-problem/knn-problem.component';
 import {MatRadioModule} from '@angular/material/radio';
 import { LinearRegressionProblemComponent } from './linear-regression/linear-regression-problem/linear-regression-problem.component';
 import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
+import {CnnProblemComponent} from './cnn/cnn-problem/cnn-problem.component';
+import {GeneticAlgorithmProblemComponent} from './genetic-algorithm/genetic-algorithm-problem/genetic-algorithm-problem.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
         KnnProblemComponent,
         LinearRegressionProblemComponent,
         GanProblemComponent,
+        CnnProblemComponent,
+        GeneticAlgorithmProblemComponent,
     ],
     imports: [
         BrowserModule,
@@ -60,6 +64,8 @@ import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
         KnnProblemComponent,
         LinearRegressionProblemComponent,
         GanProblemComponent,
+        CnnProblemComponent,
+        GeneticAlgorithmProblemComponent,
     ]
 })
 export class AppModule {

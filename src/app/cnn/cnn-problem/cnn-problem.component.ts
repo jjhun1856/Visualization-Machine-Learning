@@ -17,7 +17,6 @@ export class CnnProblemComponent implements OnInit {
     answer9: string;
     answer10: string;
     answer11: string;
-    answer12: string;
     
     score: number = 0;
     isSubmit: boolean = false;
@@ -41,20 +40,19 @@ export class CnnProblemComponent implements OnInit {
         if (this.answer5.toLowerCase() === 'convolution' && this.answer6.toLowerCase() ==='relu' && this.answer7.toLowerCase() ==='pooling') {
             this.score += 12.5;
         }
-        if (this.answer8.toLowerCase() === 'filter' || this.answer9.toLowerCase() ==='kernel') {
+        if (this.answer8.toLowerCase() === 'filter' || this.answer8.toLowerCase() ==='kernel') {
+            this.score += 12.5;
+        }
+        if (this.answer9 === '3') {
             this.score += 12.5;
         }
         if (this.answer10 === '3') {
             this.score += 12.5;
         }
-        if (this.answer11 === '3') {
-            this.score += 12.5;
-        }
-        if (this.answer12.toLowerCase() === 'padding') {
+        if (this.answer11.toLowerCase() === 'padding') {
             this.score += 12.5;
         }
 
-        
         this.isSubmit = true;
     }
 }

@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-genetic-algorithm-problem',
-    templateUrl: './genecit-algorithm-problem.component.html',
-    styleUrls: ['./genecit-algorithm-problem.component.scss']
+    templateUrl: './genetic-algorithm-problem.component.html',
+    styleUrls: ['./genetic-algorithm-problem.component.scss']
 })
 export class GeneticAlgorithmProblemComponent implements OnInit {
     answer1: string;
