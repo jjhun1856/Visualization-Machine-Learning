@@ -1,3 +1,5 @@
+<img class="btn-close" mat-dialog-close src="assets/icon_close_black.svg"/>
+
 <div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
     <div>
         <span>1. 선형 회귀(Linear regression)는 지도학습(Supervised learning) 중 하나이다.</span>
@@ -24,7 +26,7 @@
 </div>
 
 <div *ngIf="isSubmit">
-    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <strong>당신의 점수는? {{this.score}} / 100 <br><br> </strong>
     <div>
         <span>1. 선형 회귀(Linear regression)는 지도학습(Supervised learning) 중 하나이다.</span>
         <mat-radio-group fxLayout="column" disabled>

@@ -1,3 +1,5 @@
+<img class="btn-close" mat-dialog-close src="assets/icon_close_black.svg"/>
+
 <div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
     <div>
         <span>1. 유전 알고리즘(Genetic algorithm)의 특징으로 알맞지 않은 것은?</span>
@@ -33,11 +35,11 @@
 </div>
 
 <div *ngIf="isSubmit">
-    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <strong>당신의 점수는? {{this.score}} / 100 <br><br></strong>
     
     <div>
         <span>1. 유전 알고리즘(Genetic algorithm)의 특징으로 알맞지 않은 것은?</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">John Holland가 다윈 진화론의 적자생존에 기반하여 개발한 최적화 연산 방법이다.</mat-radio-button>
             <mat-radio-button value="2" [checked]="true">이론적으로 전역 최적점을 찾을 수 있지만, 수학적으로 명확하게 정의되지 않은 문제에는 적용할 수 없다. </mat-radio-button>
             <mat-radio-button value="3">염색체(chromosome), 유전자(gene), 자손(offspring), 적합도(fitness)라는 개념을 가진다.</mat-radio-button>
@@ -48,7 +50,7 @@
 
     <div>
         <span>2. 유전 알고리즘(Genetic algorithm)의 순서로 알맞은 것은?</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">최초 염색체 생성(Initialization) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
             <mat-radio-button value="2">최초 염색체 생성(Initialization) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 우성 염색체 선별(Selection) -> 세대 적합도 평가(Fitness evaluation) -> 다음 세대 생성(Update generation)</mat-radio-button>
             <mat-radio-button value="3" [checked]="true">최초 염색체 생성(Initialization) -> 세대 적합도 평가(Fitness evaluation) -> 우성 염색체 선별(Selection) -> 세대 교차(Crossover)와 돌연변이(Mutation) -> 다음 세대 생성(Update generation)</mat-radio-button>
@@ -64,7 +66,7 @@
 
     <div>
         <span>3. 유전 알고리즘(Genetic algorithm)에서 쓰이는 개념이 아닌 것은?</span>
-        <mat-radio-group fxLayout="column">
+        <mat-radio-group fxLayout="column" disabled>
             <mat-radio-button value="1">자손(offspring)</mat-radio-button>
             <mat-radio-button value="2">염색체(chromosome)</mat-radio-button>
             <mat-radio-button value="3">유전자(gene)</mat-radio-button>

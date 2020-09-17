@@ -1,0 +1,114 @@
+<div id="wrapper">
+    <header id="header">
+        <div fxLayout="row">
+            <a class="btn-back" [routerLink]="['/']">
+                <mat-icon>keyboard_backspace</mat-icon>
+            </a>
+        </div>
+
+        <h1 class="title">Genetic algorithm</h1>
+    </header>
+
+    <section id="main" fxLayout="column" fxLayoutGap="16px">
+        <div>
+            <h2>1. Abstract</h2>
+            <div class="description">
+                <p>
+                    * 유전 알고리즘(Genetic algorithm)은 John Holland가 다윈 진화론의 적자생존에 기반하여 개발한 최적화 연산 방법이다.<br>
+                    * 생물의 진화를 모방한 진화 연산의 대표적인 기법(탐색 알고리즘의 일종)이다.<br>
+                    * 유전 알고리즘은 이론적으로 전역 최적점을 찾을 수 있으며, 수학적으로 명확하게 정의되지 않은 문제에도 적용할 수 있기 때문에 매우 유용하게 이용된다.<br>
+                    * 사용되는 개념<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;1) 염색체 (chromosome): 생물학적으로는 유전 물질을 담고 있는 하나의 집합을 의미하며, 유전 알고리즘에는 하나의 해(solution)을 표현한다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;2) 유전자 (gene): 염색체를 구성하는 요소로써, 하나의 유전 정보를 나타낸다. 어떠한 염색체가 [A B C]라면, 이 염색체에는 각각 A, B, 그리고 C의 값을 갖는 3개의 gene이 존재한다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3) 자손 (offspring): 특정 시간 t에 존재했던 염색체들로부터 생성된 염색체를 t에 존재했던 염색체들의 자손이라고 한다. 자손은 이전 세대와 비슷한 유전 정보를 갖는다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;4) 적합도 (fitness): 어떠한 염색체가 갖고 있는 고유값으로써, 해당 문제에 대해 염색체가 표현하는 해가 얼마나 적합한지를 나타낸다.<br>
+                    * 유전 알고리즘은 특정 시간 t에 존재하는 염색체들의 집합으로부터 적합도가 가장 좋은 염색체를 선택하고, 선택된 해의 방향으로 검색을 반복하면서 최적해를 찾아가는 구조로 동작한다.
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <h2>2. 흐름도 및 시각화</h2>
+            <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+                <span (click)="OpenDetailDialog(1)">최초 염색체 생성</span>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+                <span (click)="OpenDetailDialog(2)">다음 세대 연산</span>
+            </div>
+        </div>
+
+        <div>
+            <h2>3. code</h2>
+            <div class="code" fxLayoutAlign="center center">
+                <pre>
+import random
+
+genes = "abcdefghijklmnopqrsttuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-[]()1234567890;<>?/ "
+target = input()
+
+def genPar(length):
+    parent = []
+    for i in range(length):
+        parent.append(random.choice(genes))
+
+    return "".join(parent)
+
+def fitness(parent):
+    total = 0
+    for i in range(len(parent)):
+        if(parent[i] == target[i]):
+            total += 1
+    return total
+
+def mutate(parent):
+    index  = random.choice(range(len(parent)))
+    child = []
+
+    for i in range(len(parent)):
+        if(i == index):
+            letter = random.choice(genes)
+        else:
+            letter = parent[i]
+        child.append(letter)
+
+    return "".join(child)
+
+parent = genPar(len(target))
+bestPar = parent
+bestFitness = fitness(parent)
+
+print(parent)
+
+generations = 1
+
+while True:
+    child = mutate(bestPar)
+    childFit = fitness(child)
+
+    if(childFit > bestFitness):
+        bestFitness = childFit
+        bestPar = child
+
+    print(child)
+    generations += 1
+
+    if(child == target):
+        break
+
+print("\nGenerations: " + str(generations))
+                </pre>
+            </div>
+        </div>
+
+        <div>
+            <h2>4. 문제 풀기</h2>
+            <div fxLayoutAlign="center center">
+                <button (click)="openProblemDialog()">문제 풀기</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="footer">
+        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
+    </footer>
+</div>

@@ -1,19 +1,56 @@
-<div class="dialog-wrapper" fxLayout="column" fxLayoutAlign="center center">
+<div class="dialog-wrapper" fxLayout="column" fxLayoutAlign="space-between center">
     <div class="btn-close">
         <mat-icon mat-dialog-close>clear</mat-icon>
     </div>
 
-    <span class="step" [innerText]="detailData.step"></span>
+    <span class="step" *ngIf="detailData.step" [innerText]="detailData.step"></span>
 
-    <img class="image" *ngIf="detailData.image.length > 0 && image" [src]="image" [ngClass]="detailData.logTxt ? 'image-size' : detailData.linear ? 'image-size-linear' : ''"/>
-    <span class="log" *ngIf="detailData.logTxt">Epoch: {{epoch}}, D loss: {{D_loss}}, G loss: {{G_loss}}</span>
+    <span class="step" *ngIf="detailData.steps" [innerText]="step"></span>
+
+    <div fxLayout="row">
+        <div class="pseudo-code" [innerHTML]="detailData.pseudoCode"></div>
+
+        <div fxLayout="column">
+            <img class="image" *ngIf="detailData.image && detailData.image.length > 0 && image" [src]="image" [ngClass]="detailData.logTxt ? 'image-size' : detailData.linear ? 'image-size-linear' : ''"/>
+            <span class="log" *ngIf="detailData.logTxt">Epoch: {{epoch}}, D loss: {{D_loss}}, G loss: {{G_loss}}</span>
+
+            <img class="image image-size" *ngIf="detailData.image && detailData.image.length > 0 && image && detailData.logTxt" [src]="image2"/>
+            <span class="log" *ngIf="detailData.logTxt">Epoch: {{epoch2}}, D loss: {{D_loss2}}, G loss: {{G_loss2}}</span>
+        </div>
+    </div>
+
+    <div class="gene" *ngIf="detailData.steps" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="12px">
+        <div fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="8px">
+            <img class="image" [src]="image"/>
+
+            <span *ngIf="detailData.nextGene">{{geneIndex}}세대</span>
+        </div>
+
+        <div *ngIf="detailData.nextGene" fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="8px">
+            <img class="image" [src]="image2"/>
+
+            <span>{{geneIndex + 1}}세대</span>
+        </div>
+    </div>
+
     <div class="linear" fxLayout="column" *ngIf="detailData.linearTxt">
         <ng-container *ngFor="let linear of detailData.linearTxt;">
-            <span [style.opacity]="detailData.isStep && imageIndex < detailData.image.length - 1 ? 0 : 1">{{linear}}</span>
+            <span>{{linear}}</span>
         </ng-container>
     </div>
     <div *ngIf="detailData.stateNum">
         <span *ngIf="detailData.stateNum === '1'">x = {{x}}, y = {{y}}</span>
         <span *ngIf="detailData.stateNum === '3'">y = {{W}}x {{b > 0 ? '+ ' + b : '- ' + -1 * b}}</span>
+    </div>
+    <div *ngIf="detailData.filter && imageIndex === detailData.image.length - 1" fxLayout="row" fxLayoutGap="24px">
+        <button *ngIf="!filterSelected" (click)="VerticalFilter()">Vertical</button>
+        <button *ngIf="!filterSelected" (click)="HorizontalFilter()">Horizontal</button>
+        <button *ngIf="filterSelected" (click)="Back()">back</button>
+    </div>
+    <div *ngIf="detailData.timeExpand && (imageIndex > 0 || (detailData.steps && !detailData.nextGene && stepIndex > 0) || (detailData.nextGene && geneIndex > 2))" class="btn-prev">
+        <button (click)="PrevImage()">< Prev</button>
+    </div>
+    <div *ngIf="detailData.timeExpand && ((detailData.image && imageIndex < detailData.image.length - 1) || (detailData.steps && !detailData.nextGene && stepIndex < detailData.steps.length - 1) || (detailData.nextGene && geneIndex < 23))" class="btn-next">
+        <button (click)="NextImage()">Next ></button>
     </div>
 </div>

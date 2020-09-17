@@ -1,3 +1,5 @@
+<img class="btn-close" mat-dialog-close src="assets/icon_close_black.svg"/>
+
 <div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
     <div>
         <span>1. CNN의 뜻은?</span>
@@ -56,7 +58,7 @@
 </div>
 
 <div *ngIf="isSubmit">
-    <span style="font-weight:bold">당신의 점수는? {{this.score}} / 100 <br><br> </span> 
+    <strong>당신의 점수는? {{this.score}} / 100 <br><br> </strong>
     <div>
         <span>1. CNN의 뜻은?</span>
         <input type="text" value="Convolutional Neural Networks" disabled/>

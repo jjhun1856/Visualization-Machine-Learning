@@ -363,41 +363,71 @@ export class KnnComponent implements OnInit {
   OpenDetailDialog(step: number) {
     let data = {
       step: '',
-      image: []
+      image: [],
+      pseudoCode: '',
     }
 
     switch (step) {
       case 1: {
-        data = {
-          step: `Step1. 데이터셋(X, Y), K(${this.k})값 입력\nK = ${this.k}`,
-          image: ['/assets/result-img/knn/KNN_1.png']
+        if (this.xy === '(3, 6)') {
+          data = {
+            step: `Step1. 분류할 데이터 입력\n(X, Y) = ${this.xy}\nK = ${this.k}`,
+            image: ['/assets/result-img/knn/3-6/KNN_2-1.png','/assets/result-img/knn/3-6/KNN_2-1.png','/assets/result-img/knn/3-6/KNN_2-1.png', '/assets/result-img/knn/3-6/KNN_2-2.png'],
+            pseudoCode: '<div><span class="current-step">Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+          }
+        } else if (this.xy === '(6, 4)') {
+          data = {
+            step: `Step1. 분류할 데이터 입력\n(X, Y) = ${this.xy}\nK = ${this.k}`,
+            image: ['/assets/result-img/knn/6-4/KNN_2-1.png','/assets/result-img/knn/6-4/KNN_2-1.png','/assets/result-img/knn/6-4/KNN_2-1.png', '/assets/result-img/knn/6-4/KNN_2-2.png'],
+            pseudoCode: '<div><span class="current-step">Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+          }
         }
         break;
       }
       case 2: {
         if (this.xy === '(3, 6)') {
           data = {
-            step: `Step1. 분류할 데이터 입력\n(X, Y) = ${this.xy}\nK = ${this.k}`,
-            image: ['/assets/result-img/knn/3-6/KNN_2-1.png','/assets/result-img/knn/3-6/KNN_2-1.png','/assets/result-img/knn/3-6/KNN_2-1.png', '/assets/result-img/knn/3-6/KNN_2-2.png']
+            step: 'Step2. 모든 데이터셋과 거리 계산',
+            image: ['/assets/result-img/knn/3-6/KNN_3-01.png', '/assets/result-img/knn/3-6/KNN_3-02.png', '/assets/result-img/knn/3-6/KNN_3-03.png', '/assets/result-img/knn/3-6/KNN_3-04.png', '/assets/result-img/knn/3-6/KNN_3-05.png', '/assets/result-img/knn/3-6/KNN_3-06.png', '/assets/result-img/knn/3-6/KNN_3-07.png', '/assets/result-img/knn/3-6/KNN_3-08.png', '/assets/result-img/knn/3-6/KNN_3-09.png', '/assets/result-img/knn/3-6/KNN_3-10.png', '/assets/result-img/knn/3-6/KNN_3-11.png', '/assets/result-img/knn/3-6/KNN_3-12.png', '/assets/result-img/knn/3-6/KNN_3-13.png', '/assets/result-img/knn/3-6/KNN_3-14.png'],
+            pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span class="current-step">for i = 1, ∈ Xi do</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span class="current-step">end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
           }
         } else if (this.xy === '(6, 4)') {
           data = {
-            step: `Step1. 분류할 데이터 입력\n(X, Y) = ${this.xy}\nK = ${this.k}`,
-            image: ['/assets/result-img/knn/6-4/KNN_2-1.png','/assets/result-img/knn/6-4/KNN_2-1.png','/assets/result-img/knn/6-4/KNN_2-1.png', '/assets/result-img/knn/6-4/KNN_2-2.png']
+            step: 'Step2. 모든 데이터셋과 거리 계산',
+            image: ['/assets/result-img/knn/6-4/KNN_3-01.png', '/assets/result-img/knn/6-4/KNN_3-02.png', '/assets/result-img/knn/6-4/KNN_3-03.png', '/assets/result-img/knn/6-4/KNN_3-04.png', '/assets/result-img/knn/6-4/KNN_3-05.png', '/assets/result-img/knn/6-4/KNN_3-06.png', '/assets/result-img/knn/6-4/KNN_3-07.png', '/assets/result-img/knn/6-4/KNN_3-08.png', '/assets/result-img/knn/6-4/KNN_3-09.png', '/assets/result-img/knn/6-4/KNN_3-10.png', '/assets/result-img/knn/6-4/KNN_3-11.png', '/assets/result-img/knn/6-4/KNN_3-12.png', '/assets/result-img/knn/6-4/KNN_3-13.png', '/assets/result-img/knn/6-4/KNN_3-14.png'],
+            pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span class="current-step">for i = 1, ∈ Xi do</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span class="current-step">end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
           }
         }
         break;
       }
       case 3: {
         if (this.xy === '(3, 6)') {
-          data = {
-            step: 'Step2. 모든 데이터셋과 거리 계산',
-            image: ['/assets/result-img/knn/3-6/KNN_3-01.png', '/assets/result-img/knn/3-6/KNN_3-02.png', '/assets/result-img/knn/3-6/KNN_3-03.png', '/assets/result-img/knn/3-6/KNN_3-04.png', '/assets/result-img/knn/3-6/KNN_3-05.png', '/assets/result-img/knn/3-6/KNN_3-06.png', '/assets/result-img/knn/3-6/KNN_3-07.png', '/assets/result-img/knn/3-6/KNN_3-08.png', '/assets/result-img/knn/3-6/KNN_3-09.png', '/assets/result-img/knn/3-6/KNN_3-10.png', '/assets/result-img/knn/3-6/KNN_3-11.png', '/assets/result-img/knn/3-6/KNN_3-12.png', '/assets/result-img/knn/3-6/KNN_3-13.png', '/assets/result-img/knn/3-6/KNN_3-14.png']
+          if (this.k === '1') {
+            data = {
+              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/3-6/1/KNN_4-1.png','/assets/result-img/knn/3-6/1/KNN_4-1.png','/assets/result-img/knn/3-6/1/KNN_4-1.png', '/assets/result-img/knn/3-6/1/KNN_4-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span class="current-step">Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/3-6/3/KNN_4-1.png','/assets/result-img/knn/3-6/3/KNN_4-1.png','/assets/result-img/knn/3-6/3/KNN_4-1.png', '/assets/result-img/knn/3-6/3/KNN_4-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span class="current-step">Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+            }
           }
         } else if (this.xy === '(6, 4)') {
-          data = {
-            step: 'Step2. 모든 데이터셋과 거리 계산',
-            image: ['/assets/result-img/knn/6-4/KNN_3-01.png', '/assets/result-img/knn/6-4/KNN_3-02.png', '/assets/result-img/knn/6-4/KNN_3-03.png', '/assets/result-img/knn/6-4/KNN_3-04.png', '/assets/result-img/knn/6-4/KNN_3-05.png', '/assets/result-img/knn/6-4/KNN_3-06.png', '/assets/result-img/knn/6-4/KNN_3-07.png', '/assets/result-img/knn/6-4/KNN_3-08.png', '/assets/result-img/knn/6-4/KNN_3-09.png', '/assets/result-img/knn/6-4/KNN_3-10.png', '/assets/result-img/knn/6-4/KNN_3-11.png', '/assets/result-img/knn/6-4/KNN_3-12.png', '/assets/result-img/knn/6-4/KNN_3-13.png', '/assets/result-img/knn/6-4/KNN_3-14.png']
+          if (this.k === '1') {
+            data = {
+              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/6-4/1/KNN_4-1.png', '/assets/result-img/knn/6-4/1/KNN_4-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span class="current-step">Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+            }
+          } else if (this.k === '3') {
+            data = {
+              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
+              image: ['/assets/result-img/knn/6-4/3/KNN_4-1.png', '/assets/result-img/knn/6-4/3/KNN_4-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span class="current-step">Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span>return majority label for {Yi where i ∈ I}</span></div>'
+            }
           }
         }
         break;
@@ -406,53 +436,29 @@ export class KnnComponent implements OnInit {
         if (this.xy === '(3, 6)') {
           if (this.k === '1') {
             data = {
-              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
-              image: ['/assets/result-img/knn/3-6/1/KNN_4-1.png','/assets/result-img/knn/3-6/1/KNN_4-1.png','/assets/result-img/knn/3-6/1/KNN_4-1.png', '/assets/result-img/knn/3-6/1/KNN_4-2.png']
-            }
-          } else if (this.k === '3') {
-            data = {
-              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
-              image: ['/assets/result-img/knn/3-6/3/KNN_4-1.png','/assets/result-img/knn/3-6/3/KNN_4-1.png','/assets/result-img/knn/3-6/3/KNN_4-1.png', '/assets/result-img/knn/3-6/3/KNN_4-2.png']
-            }
-          }
-        } else if (this.xy === '(6, 4)') {
-          if (this.k === '1') {
-            data = {
-              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
-              image: ['/assets/result-img/knn/6-4/1/KNN_4-1.png', '/assets/result-img/knn/6-4/1/KNN_4-2.png']
-            }
-          } else if (this.k === '3') {
-            data = {
-              step: `Step3. 거리가 짧은 순서로 K개 만큼 선택\nK = ${this.k}`,
-              image: ['/assets/result-img/knn/6-4/3/KNN_4-1.png', '/assets/result-img/knn/6-4/3/KNN_4-2.png']
-            }
-          }
-        }
-        break;
-      }
-      case 5: {
-        if (this.xy === '(3, 6)') {
-          if (this.k === '1') {
-            data = {
               step: 'Step4. 선택된 값 중 다수 값으로 분류',
-              image: ['/assets/result-img/knn/3-6/1/KNN_5-1.png','/assets/result-img/knn/3-6/1/KNN_5-1.png','/assets/result-img/knn/3-6/1/KNN_5-1.png', '/assets/result-img/knn/3-6/1/KNN_5-2.png']
+              image: ['/assets/result-img/knn/3-6/1/KNN_5-1.png','/assets/result-img/knn/3-6/1/KNN_5-1.png','/assets/result-img/knn/3-6/1/KNN_5-1.png', '/assets/result-img/knn/3-6/1/KNN_5-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span class="current-step">return majority label for {Yi where i ∈ I}</span></div>'
             }
           } else if (this.k === '3') {
             data = {
               step: 'Step4. 선택된 값 중 다수 값으로 분류',
-              image: ['/assets/result-img/knn/3-6/3/KNN_5-1.png','/assets/result-img/knn/3-6/3/KNN_5-1.png','/assets/result-img/knn/3-6/3/KNN_5-1.png', '/assets/result-img/knn/3-6/3/KNN_5-2.png']
+              image: ['/assets/result-img/knn/3-6/3/KNN_5-1.png','/assets/result-img/knn/3-6/3/KNN_5-1.png','/assets/result-img/knn/3-6/3/KNN_5-1.png', '/assets/result-img/knn/3-6/3/KNN_5-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span class="current-step">return majority label for {Yi where i ∈ I}</span></div>'
             }
           }
         } else if (this.xy === '(6, 4)') {
           if (this.k === '1') {
             data = {
               step: 'Step4. 선택된 값 중 다수 값으로 분류',
-              image: ['/assets/result-img/knn/6-4/1/KNN_5-1.png','/assets/result-img/knn/6-4/1/KNN_5-1.png','/assets/result-img/knn/6-4/1/KNN_5-1.png', '/assets/result-img/knn/6-4/1/KNN_5-2.png']
+              image: ['/assets/result-img/knn/6-4/1/KNN_5-1.png','/assets/result-img/knn/6-4/1/KNN_5-1.png','/assets/result-img/knn/6-4/1/KNN_5-1.png', '/assets/result-img/knn/6-4/1/KNN_5-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span class="current-step">return majority label for {Yi where i ∈ I}</span></div>'
             }
           } else if (this.k === '3') {
             data = {
               step: 'Step4. 선택된 값 중 다수 값으로 분류',
-              image: ['/assets/result-img/knn/6-4/3/KNN_5-1.png','/assets/result-img/knn/6-4/3/KNN_5-1.png','/assets/result-img/knn/6-4/3/KNN_5-1.png', '/assets/result-img/knn/6-4/3/KNN_5-2.png']
+              image: ['/assets/result-img/knn/6-4/3/KNN_5-1.png','/assets/result-img/knn/6-4/3/KNN_5-1.png','/assets/result-img/knn/6-4/3/KNN_5-1.png', '/assets/result-img/knn/6-4/3/KNN_5-2.png'],
+              pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span class="current-step">return majority label for {Yi where i ∈ I}</span></div>'
             }
           }
         }

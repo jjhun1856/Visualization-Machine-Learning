@@ -23,6 +23,7 @@ import { LinearRegressionProblemComponent } from './linear-regression/linear-reg
 import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
 import {CnnProblemComponent} from './cnn/cnn-problem/cnn-problem.component';
 import {GeneticAlgorithmProblemComponent} from './genetic-algorithm/genetic-algorithm-problem/genetic-algorithm-problem.component';
+import { GeneticAlgorithmComponent } from './genetic-algorithm/genetic-algorithm.component';
 
 @NgModule({
     declarations: [
@@ -39,6 +40,7 @@ import {GeneticAlgorithmProblemComponent} from './genetic-algorithm/genetic-algo
         GanProblemComponent,
         CnnProblemComponent,
         GeneticAlgorithmProblemComponent,
+        GeneticAlgorithmComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,3 +1,22 @@
+::ng-deep .mat-dialog-container {
+  max-width: 1080px;
+  position: relative;
+}
+
+strong {
+  color: black;
+  font-weight: bold;
+}
+
+.btn-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
 input {
   border: 1px solid #707070;
   margin-top: 8px;
@@ -9,6 +28,8 @@ mat-radio-group {
 
 ::ng-deep .mat-radio-label-content {
   color: black;
+  white-space: normal;
+  word-break: keep-all;
 }
 
 ::ng-deep .mat-radio-button.mat-radio-disabled .mat-radio-label-content {

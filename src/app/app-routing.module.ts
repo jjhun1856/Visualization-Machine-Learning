@@ -5,6 +5,7 @@ import {KnnComponent} from './knn/knn.component';
 import {LinearRegressionComponent} from './linear-regression/linear-regression.component';
 import {GanComponent} from './gan/gan.component';
 import {CnnComponent} from './cnn/cnn.component';
+import {GeneticAlgorithmComponent} from './genetic-algorithm/genetic-algorithm.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,10 @@ const routes: Routes = [
     path: 'cnn',
     component: CnnComponent,
   },
+  {
+    path: 'genetic-algorithm',
+    component: GeneticAlgorithmComponent,
+  }
 ];
 
 @NgModule({

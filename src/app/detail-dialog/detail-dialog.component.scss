@@ -1,4 +1,5 @@
 .dialog-wrapper {
+  height: 100%;
   position: relative;
 
   .btn-close {
@@ -21,6 +22,21 @@
     word-break: keep-all;
   }
 
+  .pseudo-code {
+    border: 1px solid #c1c1c1;
+    padding: 0 12px;
+
+    ::ng-deep div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    ::ng-deep span.current-step {
+      font-weight: bold;
+      color: #ff6385;
+    }
+  }
+
   .log {
     margin-top: 8px;
   }
@@ -29,20 +45,23 @@
     margin-top: 20px;
     max-width: 960px;
     max-height: 480px;
+
+    flex: 1;
+    object-fit: contain;
   }
 
   .image-size {
     margin-top: 40px;
     width: 840px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .image-size-linear {
     margin-top: 56px;
     width: 640px;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .linear {
@@ -50,6 +69,24 @@
 
     span:not(:first-child) {
       margin-top: 2px;
+    }
+  }
+
+  .btn-prev {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .btn-next {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .gene {
+    span {
+      text-align: center;
     }
   }
 }
