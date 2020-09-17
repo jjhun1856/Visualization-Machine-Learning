@@ -30,17 +30,19 @@ export class GanComponent implements OnInit {
         switch (step) {
             case 1: {
                 data = {
-                    step: `Step1. learning rate, epoch, batch size, noise 값 입력\n\n\nlearning rate = 0.001\nepoch = 100\nbatch size = 64\nnoise = 100`,
+                    step: `Step1. GAN 구조 정의하기(learning rate, epoch, batch size, noise 입력)\n\n\nlearning rate = 0.001\nepoch = 100\nbatch size = 64\nnoise = 100`,
                     image: [],
                     logTxt: null,
+                    pseudoCode: '<div><span class="current-step">define architecture of GAN</span><span>for i from 1 to n</span><span>&nbsp;&nbsp;&nbsp;&nbsp;train discriminator on real data</span><span>&nbsp;&nbsp;&nbsp;&nbsp;generate fake inputs for generator</span><span>&nbsp;&nbsp;&nbsp;&nbsp;train discriminator on fake data</span><span>&nbsp;&nbsp;&nbsp;&nbsp;train generator with the ouput of discriminator</span><span>&nbsp;&nbsp;&nbsp;&nbsp;if fake data == legit</span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop</span></div>'
                 }
                 break;
             }
             case 2: {
                 data = {
-                    step: 'Step2. 모델 학습하기\n\nEpoch: 학습 횟수\nD(iscriminator) loss: 작을수록 좋음\n G(enerator) loss: 클수록 성능 높음',
+                    step: 'Step2. 모델 훈련하기\n\nEpoch: 학습 횟수\nD(iscriminator) loss: 작을수록 좋음\n G(enerator) loss: 클수록 성능 높음',
                     image: [],
                     logTxt: [],
+                    pseudoCode: '<div><span>define architecture of GAN</span><span class="current-step">for i from 1 to n</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;train discriminator on real data</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;generate fake inputs for generator</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;train discriminator on fake data</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;train generator with the ouput of discriminator</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;if fake data == legit</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop</span></div>'
                 }
 
                 for (let i = 0; i < 100; i++) {
