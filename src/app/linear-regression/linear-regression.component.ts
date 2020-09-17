@@ -603,7 +603,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: '1',
-            graphData: []
+            graphData: [],
+            pseudoCode: '<div><span class="current-step">read number of data (N)</span><span class="current-step">for i from 1 to N</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
           for (let i = 0; i < 30; i++) {
             if (i < 10) {
@@ -624,7 +625,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: '1',
-            graphData: []
+            graphData: [],
+            pseudoCode: '<div><span class="current-step">read number of data (N)</span><span class="current-step">for i from 1 to N</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
           for (let i = 0; i < 30; i++) {
             if (i < 10) {
@@ -649,7 +651,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null,
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span class="current-step">cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
         } else if (this.pattern === '2') {
           data = {
@@ -659,7 +662,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null,
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span class="current-step">cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
         }
         break;
@@ -673,7 +677,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: '3',
             stateNum: '3',
-            graphData: []
+            graphData: [],
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span class="current-step">for i from 1 to N</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span class="current-step">slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
 
           for (let i = 0; i < 30; i++) {
@@ -695,7 +700,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: '3',
             stateNum: '3',
-            graphData: []
+            graphData: [],
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span class="current-step">for i from 1 to N</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span class="current-step">&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span class="current-step">slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
 
           for (let i = 0; i < 30; i++) {
@@ -721,7 +727,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null,
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span class="current-step">display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
         } else if (this.pattern === '2') {
           data = {
@@ -731,7 +738,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null, 
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span class="current-step">display predictive linear function of slope and yIntercept</span><span>predict y for x</span></div>'
           }
         }
         break;
@@ -745,7 +753,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null,
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span class="current-step">predict y for x</span></div>'
           }
         } else if (this.pattern === '2') {
           data = {
@@ -755,7 +764,8 @@ export class LinearRegressionComponent implements OnInit {
             linear: '1',
             isStep: null,
             stateNum: null,
-            graphData: null
+            graphData: null,
+            pseudoCode: '<div><span>read number of data (N)</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;read Xi and Yi</span><span>cacluate mean of X and Y</span><span>for i from 1 to N</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX = sumX + Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumX2 = sumX2 + Xi * Xi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumY = sumY + Yi</span><span>&nbsp;&nbsp;&nbsp;&nbsp;sumXY = sumXY + Xi * Yi</span><span>yIntercept = (N * sumXY - sumX * sumY) / (N * sumX2 - sumX * sumX)</span><span>slope = (sumY - yIntercept * sumX) / N</span><span>display predictive linear function of slope and yIntercept</span><span class="current-step">predict y for x</span></div>'
           }
         }
         break;
