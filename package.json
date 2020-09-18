@@ -26,6 +26,7 @@
     "@tensorflow/tfjs-vis": "^1.4.3",
     "hammerjs": "^2.0.8",
     "jquery": "^3.5.1",
+    "ngx-loading": "^8.0.0",
     "ngx-mathjax": "0.0.13",
     "rxjs": "^6.6.2",
     "rxjs-compat": "^6.6.2",

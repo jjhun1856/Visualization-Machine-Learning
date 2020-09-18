@@ -35,15 +35,18 @@
         <div>
             <h2>3. 흐름도 및 시각화</h2>
             <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
-                <mat-select placeholder="k값 선택" (selectionChange)="kChange($event)">
-                    <mat-option value="1">1</mat-option>
-                    <mat-option value="3">3</mat-option>
-                </mat-select>
+<!--                <mat-select placeholder="k값 선택" (selectionChange)="kChange($event)">-->
+<!--                    <mat-option value="1">1</mat-option>-->
+<!--                    <mat-option value="3">3</mat-option>-->
+<!--                </mat-select>-->
 
-                <mat-select placeholder="분류할 데이터(x, y) 선택" (selectionChange)="xyChange($event)">
-                    <mat-option value="(3, 6)">(3, 6)</mat-option>
-                    <mat-option value="(6, 4)">(6, 4)</mat-option>
-                </mat-select>
+<!--                <mat-select placeholder="분류할 데이터(x, y) 선택" (selectionChange)="xyChange($event)">-->
+<!--                    <mat-option value="(3, 6)">(3, 6)</mat-option>-->
+<!--                    <mat-option value="(6, 4)">(6, 4)</mat-option>-->
+<!--                </mat-select>-->
+                <input matInput type="number" placeholder="k값 입력" [(ngModel)]="k"/>
+                <input matInput type="number" placeholder="x값 입력" [(ngModel)]="x"/>
+                <input matInput type="number" placeholder="y값 입력" [(ngModel)]="y"/>
 
                 <button (click)="dataSelect()">확인</button>
             </div>
@@ -126,3 +129,9 @@
         <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
     </footer>
 </div>
+
+<ngx-loading [show]="loadingService.loading.value" [config]="{fullScreenBackdrop: true}"
+             [template]="paymentLoadingTemplate">
+    <ng-template #paymentLoadingTemplate>
+    </ng-template>
+</ngx-loading>

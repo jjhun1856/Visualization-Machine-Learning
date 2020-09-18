@@ -197,7 +197,7 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
 
                 if (i === this.detailData.image.length - 1) i = 0;
                 else i++;
-            }, 500);
+            }, 800);
         }
     }
 

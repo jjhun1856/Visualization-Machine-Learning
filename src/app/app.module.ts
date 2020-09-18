@@ -24,6 +24,10 @@ import {GanProblemComponent} from './gan/gan-problem/gan-problem.component';
 import {CnnProblemComponent} from './cnn/cnn-problem/cnn-problem.component';
 import {GeneticAlgorithmProblemComponent} from './genetic-algorithm/genetic-algorithm-problem/genetic-algorithm-problem.component';
 import { GeneticAlgorithmComponent } from './genetic-algorithm/genetic-algorithm.component';
+import {MatInputModule} from '@angular/material/input';
+import {HttpClientModule} from '@angular/common/http';
+import {NgxLoadingModule} from 'ngx-loading';
+import {LoadingService} from './loading.service';
 
 @NgModule({
     declarations: [
@@ -53,6 +57,9 @@ import { GeneticAlgorithmComponent } from './genetic-algorithm/genetic-algorithm
         MathJaxModule.forRoot(),
         MatSelectModule,
         MatRadioModule,
+        MatInputModule,
+        HttpClientModule,
+        NgxLoadingModule,
         // MathJaxModule.forRoot({
         //     version: '2.7.5',
         //     config: 'TeX-AMS_HTML',
