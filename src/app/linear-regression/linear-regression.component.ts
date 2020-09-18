@@ -591,6 +591,7 @@ export class LinearRegressionComponent implements OnInit {
       isStep: '',
       stateNum: '',
       graphData: [],
+      pseudoCode: '',
     }
 
     switch (step) {
@@ -774,7 +775,7 @@ export class LinearRegressionComponent implements OnInit {
 
     this.dialog.open(DetailDialogComponent, {
       width: '1080px',
-      height: '640px',
+      height: '720px',
       data: data
     });
   }
@@ -787,10 +788,15 @@ export class LinearRegressionComponent implements OnInit {
     this.selectData = true;
   }
 
+  resetData() {
+    this.pattern = null;
+    this.selectData = false;
+  }
+
   openProblemDialog() {
     this.dialog.open(LinearRegressionProblemComponent, {
       width: '1080px',
-      height: '640px'
+      height: '720px'
     });
   }
 }

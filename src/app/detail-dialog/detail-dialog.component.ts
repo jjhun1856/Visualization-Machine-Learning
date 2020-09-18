@@ -17,6 +17,7 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     stepIndex: number = 0;
 
     geneIndex: number = 2;
+    genePseudoCode: string;
 
     filterSelected: boolean = false;
 
@@ -40,6 +41,7 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     ) {
         this.detailData = data;
         console.log(data.pseudoCode);
+        console.log(this.detailData.pseudoCode[this.stepIndex]);
         if (this.detailData.image) this.image = this.detailData.image[0];
         if (this.detailData.logTxt) this.image2 = this.detailData.image[1];
         if (this.detailData.nextGene) {
@@ -129,7 +131,7 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
                         }
                         i++;
                     }
-                }, 500);
+                }, 800);
             } else {
                 switch (this.stepIndex) {
                     case 0: {
@@ -258,5 +260,10 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     Back() {
         this.image = this.detailData.image[this.imageIndex];
         this.filterSelected = false;
+    }
+
+    test() {
+        console.log(this.detailData.pseudoCode);
+        console.log(this.detailData.pseudoCode[this.stepIndex]);
     }
 }

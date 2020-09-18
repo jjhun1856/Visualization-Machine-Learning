@@ -468,7 +468,7 @@ export class KnnComponent implements OnInit {
 
     this.dialog.open(DetailDialogComponent, {
       width: '1080px',
-      height: '640px',
+      height: '720px',
       data: data
     });
   }
@@ -485,10 +485,16 @@ export class KnnComponent implements OnInit {
     this.selectData = true;
   }
 
+  resetData() {
+    this.k = null;
+    this.xy = null;
+    this.selectData = false;
+  }
+
   openProblemDialog() {
     this.dialog.open(KnnProblemComponent, {
       width: '1080px',
-      height: '640px'
+      height: '720px'
     });
   }
 }
