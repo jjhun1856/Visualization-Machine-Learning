@@ -23,12 +23,10 @@ export class KnnProblemComponent implements OnInit {
 
     selectAnswer3(event: any) {
         this.answer3 = event.value;
-        console.log(this.answer3);
     }
 
     selectAnswer4(event: any) {
         this.answer4 = event.value;
-        console.log(this.answer4);
     }
 
     submit() {

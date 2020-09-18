@@ -38,7 +38,7 @@
     </div>
 
     <div class="gene visualization" *ngIf="detailData.steps" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="12px">
-        <div *ngIf="detailData.pseudoCode" class="pseudo-code" [innerHTML]="detailData.pseudoCode[stepIndex]" (click)="test()"></div>
+        <div *ngIf="detailData.pseudoCode" class="pseudo-code" [innerHTML]="detailData.pseudoCode[stepIndex]"></div>
 
         <div fxLayout="row" fxLayoutAlign="center center" [ngClass]="detailData.pseudoCode ? 'image-wrapper' : 'image-only-wrapper'">
             <div fxLayout="column" fxLayoutAlign="center space-between" fxLayoutGap="8px" [ngClass]="detailData.nextGene ? '' : 'image-gene'">

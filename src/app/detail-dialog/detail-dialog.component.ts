@@ -40,8 +40,6 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
         @Inject(MAT_DIALOG_DATA) private data: any,
     ) {
         this.detailData = data;
-        console.log(data.pseudoCode);
-        console.log(this.detailData.pseudoCode[this.stepIndex]);
         if (this.detailData.image) this.image = this.detailData.image[0];
         if (this.detailData.logTxt) this.image2 = this.detailData.image[1];
         if (this.detailData.nextGene) {
@@ -260,10 +258,5 @@ export class DetailDialogComponent implements OnInit, OnDestroy {
     Back() {
         this.image = this.detailData.image[this.imageIndex];
         this.filterSelected = false;
-    }
-
-    test() {
-        console.log(this.detailData.pseudoCode);
-        console.log(this.detailData.pseudoCode[this.stepIndex]);
     }
 }
