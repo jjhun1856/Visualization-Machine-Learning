@@ -35,15 +35,6 @@
         <div>
             <h2>3. 흐름도 및 시각화</h2>
             <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
-<!--                <mat-select placeholder="k값 선택" (selectionChange)="kChange($event)">-->
-<!--                    <mat-option value="1">1</mat-option>-->
-<!--                    <mat-option value="3">3</mat-option>-->
-<!--                </mat-select>-->
-
-<!--                <mat-select placeholder="분류할 데이터(x, y) 선택" (selectionChange)="xyChange($event)">-->
-<!--                    <mat-option value="(3, 6)">(3, 6)</mat-option>-->
-<!--                    <mat-option value="(6, 4)">(6, 4)</mat-option>-->
-<!--                </mat-select>-->
                 <input matInput type="number" placeholder="k값 입력" [(ngModel)]="k"/>
                 <input matInput type="number" placeholder="x값 입력" [(ngModel)]="x"/>
                 <input matInput type="number" placeholder="y값 입력" [(ngModel)]="y"/>
@@ -51,8 +42,6 @@
                 <button (click)="dataSelect()">확인</button>
             </div>
             <div *ngIf="selectData" class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-                <!-- <span (click)="OpenDetailDialog(1)">데이터셋(X, Y), K값({{this.k}}) 입력</span> -->
-                <!-- <mat-icon>keyboard_arrow_right</mat-icon> -->
                 <span (click)="OpenDetailDialog(1)">데이터{{this.xy}},  K값({{this.k}}) 입력</span>
                 <mat-icon>keyboard_arrow_right</mat-icon>
                 <span (click)="OpenDetailDialog(2)">모든 데이터셋과 거리 계산</span>
@@ -64,26 +53,6 @@
                 <button (click)="resetData()">reset</button>
             </div>
         </div>
-        <!--        <section class="thumbnails">-->
-        <!--            <div class="code">-->
-        <!--                <div *ngFor="let cd of codeArray; let i = index">-->
-        <!--                    <span [id]="'code' + i" [innerText]="cd + '\n'"></span>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-        <!--            <div class="flowchart">-->
-        <!--                <svg id="flowchart" class="svg"></svg>-->
-
-        <!--                <div class="button">-->
-        <!--                    <button (click)="test()">test</button>-->
-        <!--                    <button (click)="clear()">clear</button>-->
-        <!--                </div>-->
-        <!--            </div>-->
-
-        <!--            <div class="vis">-->
-        <!--                <img id="vis-result"/>-->
-        <!--            </div>-->
-        <!--        </section>-->
 
         <div>
             <h2>4. code</h2>
@@ -126,7 +95,7 @@
 
 
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
+        <p>&copy; 머신중헌디. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
     </footer>
 </div>
 

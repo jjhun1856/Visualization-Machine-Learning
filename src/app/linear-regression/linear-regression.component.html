@@ -7,8 +7,6 @@
         </div>
 
         <h1 class="title" [routerLink]="'/'">Linear Regression</h1>
-        <!--    <span>{{prediction}}</span>-->
-        <!--    <input style="color: black" type="number" (change)="predict($event.target.value)"/>-->
     </header>
 
     <section id="main" fxLayout="column" fxLayoutGap="16px">
@@ -61,20 +59,12 @@
                 </div>
 
                 <div class="exp" fxLayout="column" fxLayoutAlign="center center">
-                    <!--                <img src="https://latex.codecogs.com/gif.latex?a=\frac{\sum_{i=1}^{n}\left(x-mean\left(x\right)\right)\left(y-mean\left(y\right)\right)}{\sum_{i=1}^{n}\left(x-mean\left(x\right)\right)^{2}}" title="a=\frac{\sum_{i=1}^{n}\left(x-mean\left(x\right)\right)\left(y-mean\left(y\right)\right)}{\sum_{i=1}^{n}\left(x-mean\left(x\right)\right)^{2}}" />-->
-                    <!--                <img src="https://latex.codecogs.com/gif.latex?b=mean\left(y\right)-\left(mean\left(x\right)\cdot\\a\right)" title="b=mean\left(y\right)-\left(mean\left(x\right)\cdot\\a\right)" />-->
-                    <!--                <br><br>-->
                     <img src="assets/result-img/linear-regression/exp_2.png"/>
                 </div>
 
                 <div class="abstract">
                     &nbsp;근사적으로 구하려는 해와 실제 해의 오차의 제곱의 합이 최소가 되는 해를 구하는 방법이다.
                 </div>
-                <!--                일차함수 직선의 개념이 y = ax + b 직선을 임의로 그려놓고, 그 직선을 바탕으로 예측하는 것,<br>-->
-                <!--                즉, 데이터를 수집해서 예측 선형 함수를 만들고(선의 방향을 설정하고), 함수를 기반으로 다음을 예측할 수 있다.<br>-->
-                <!--                <br>-->
-                <!--                - 최소제곱법<br>-->
-                <!--                근사적으로 구하려는 해와 실제 해의 오차의 제곱의 합이 최소가 되는 해를 구하는 방법.-->
             </div>
         </div>
 
@@ -191,52 +181,10 @@ with tf.Session() as sess:
                 <button (click)="openProblemDialog()">문제 풀기</button>
             </div>
         </div>
-        <!--    <section class="thumbnails">-->
-        <!--      <div class="code">-->
-        <!--        <div *ngFor="let cd of codeArray; let i = index">-->
-        <!--          <span [id]="'code' + i" [innerText]="cd + '\n'"></span>-->
-        <!--        </div>-->
-        <!--      </div>-->
-
-        <!--      <div class="flowchart">-->
-        <!--        <span>predict Data</span>-->
-        <!--        <div class="predict">-->
-        <!--          <input id="predict-input" type="text" placeholder="input x" [(ngModel)]="predictX"/>-->
-        <!--          <button (click)="predict()">predict</button>-->
-        <!--        </div>-->
-
-        <!--        <div class="prediction">-->
-        <!--          <span>output Prediction : </span>-->
-        <!--          <span>{{prediction}}</span>-->
-        <!--        </div>-->
-
-        <!--        <span>add Data</span>-->
-        <!--        <div class="add-input">-->
-        <!--          <input id="input-x" type="text" placeholder="input x" [(ngModel)]="inputX"/>-->
-        <!--          <input id="input-y" type="text" placeholder="input y" [(ngModel)]="inputY"/>-->
-        <!--          <button (click)="add()">add</button>-->
-        <!--        </div>-->
-
-        <!--        <svg id="flowchart" class="svg"></svg>-->
-
-        <!--        <div class="button">-->
-        <!--          <button (click)="test()">test</button>-->
-        <!--          <button (click)="clear()">clear</button>-->
-        <!--        </div>-->
-        <!--      </div>-->
-
-        <!--      <div class="vis">-->
-        <!--        <img id="vis-result"/>-->
-
-        <!--        <div id="scatterplot-tfjs">-->
-
-        <!--        </div>-->
-        <!--      </div>-->
-        <!--    </section>-->
     </section>
 
 
     <footer id="footer">
-        <p>&copy; Untitled. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
+        <p>&copy; 머신중헌디. All rights reserved. Design: <a href="http://templated.co">TEMPLATED</a>.</p>
     </footer>
 </div>
