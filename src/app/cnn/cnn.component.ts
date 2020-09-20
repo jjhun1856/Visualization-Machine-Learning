@@ -47,8 +47,8 @@ export class CnnComponent implements OnInit {
             }
             case 2: {
                 data = {
-                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n',
-                    image: ['/assets/result-img/cnn/CNN_02_1.png', '', '/assets/result-img/cnn/original.png'],
+                    step: 'Step2. Convolution) 이미지의 특징을 추출하기위해 입력데이터와 필터의 합성곱 연산을 실행해서 특징맵을 출력한다.\n 합성곱 과정을 거쳐서 출력되는 특징맵은 항상 입력데이터보다 크기가 작아지므로 이를 막기위해 패딩을 사용한다.',
+                    image: ['/assets/result-img/cnn/CNN_02_1.png', '/assets/result-img/cnn/CNN_03_1.gif', '/assets/result-img/cnn/original.png' ],
                     timeExpand: true,
                     filter: true,
                     gifImg: ['/assets/result-img/cnn/CNN_02_2.gif'],
