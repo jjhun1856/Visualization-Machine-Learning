@@ -1,6 +1,6 @@
 <img class="btn-close" mat-dialog-close src="assets/icon_close_black.svg"/>
 
-<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="16px">
     <div>
         <span>1. 유전 알고리즘(Genetic algorithm)의 특징으로 알맞지 않은 것은?</span>
         <mat-radio-group fxLayout="column">
@@ -31,10 +31,12 @@
         </mat-radio-group>
     </div>
 
-    <button (click)="submit()">제출</button>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <button class="btn-submit" (click)="submit()">제출</button>
+    </div>
 </div>
 
-<div *ngIf="isSubmit">
+<div *ngIf="isSubmit" fxLayout="column" fxLayoutGap="16px">
     <strong>당신의 점수는? {{this.score}} / 100 <br><br></strong>
     
     <div>

@@ -9,15 +9,14 @@
         <h1 class="title">K-Nearest Neighbor</h1>
     </header>
 
-    <section id="main" fxLayout="column" fxLayoutGap="16px">
+    <section id="main" fxLayout="column" fxLayoutGap="20px">
         <div>
             <h2>1. Abstract</h2>
             <div class="description">
-
-                &nbsp;&nbsp;&nbsp;&nbsp;KNN알고리즘은 K-Nearest Neighbor, 즉, k개 최근접 이웃 알고리즘으로 머신러닝 지도학슴(Supervised)의 분류(Classification)
-                알고리즘에 해당한다. 간단한 머신러닝 알고리즘 중 하나이다. 입력데이터와 근접한 K개의 훈련 데이터셋(Data set)사이에서 가장 빈번한 것으로 분류하는 알고리즘이다.<br>
-                <br>
-
+                <p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;KNN알고리즘은 K-Nearest Neighbor, 즉, k개 최근접 이웃 알고리즘으로 머신러닝
+                    지도학슴(Supervised)의 분류(Classification) 알고리즘에 해당한다. 간단한 머신러닝 알고리즘 중 하나이다. 입력데이터와 근접한 K개의 훈련 데이터셋(Data set)사이에서 가장 빈번한 것으로 분류하는 알고리즘이다.
+                </p>
             </div>
         </div>
 
@@ -25,16 +24,17 @@
             <h2>2. 특징</h2>
             <div class="description">
                 <p>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- 거리 척도로는 Euclidean distance 또는 Hamming distance를 사용한다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- 간단한 알고리즘인 만큼 일관성이 뛰어나다.<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;- 모든 데이터셋 사이의 거리를 계산하여야 하므로 데이터셋이 다량일경우 많은 계산량을 요구한다.
                 </p>
             </div>
         </div>
 
         <div>
             <h2>3. 흐름도 및 시각화</h2>
-            <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+            <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center"
+                 fxLayoutGap="12px">
                 <input matInput type="number" placeholder="k값 입력" [(ngModel)]="k"/>
                 <input matInput type="number" placeholder="x값 입력" [(ngModel)]="x"/>
                 <input matInput type="number" placeholder="y값 입력" [(ngModel)]="y"/>
@@ -73,7 +73,7 @@
                     <br>
                     # convert df to numpy arrays<br>
                     data = data.values<br>
-                    target =  target.values<br>
+                    target = target.values<br>
                     <br>
                     # you would ideally want to do a test train split.<br>
                     #Train the model on training data and test on the test data for accuracy<br>

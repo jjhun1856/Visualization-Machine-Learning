@@ -3,6 +3,10 @@
   padding-bottom: 28px;
 }
 
+#main {
+  padding: 0 24px;
+}
+
 #footer {
   padding-top: 48px;
   padding-bottom: 36px;
@@ -22,16 +26,15 @@
 }
 
 .description {
+  padding: 0 12px;
 
   p {
     margin-top: 8px;
     word-break: keep-all;
-      display:flex;
-      justify-content:center;
   }
 
   .exp {
-    margin: 8px 0;
+    margin: 16px 0;
   }
 
   .exp img {

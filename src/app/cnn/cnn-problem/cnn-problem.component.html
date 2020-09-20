@@ -1,6 +1,6 @@
 <img class="btn-close" mat-dialog-close src="assets/icon_close_black.svg"/>
 
-<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="12px">
+<div *ngIf="!isSubmit" fxLayout="column" fxLayoutGap="16px">
     <div>
         <span>1. CNN의 뜻은?</span>
         <input type="text" [(ngModel)]="answer1"/>
@@ -54,10 +54,12 @@
         <input type="text" [(ngModel)]="answer11"/>
     </div>
 
-    <button (click)="submit()">제출</button>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <button class="btn-submit" (click)="submit()">제출</button>
+    </div>
 </div>
 
-<div *ngIf="isSubmit">
+<div *ngIf="isSubmit" fxLayout="column" fxLayoutGap="16px">
     <strong>당신의 점수는? {{this.score}} / 100 <br><br> </strong>
     <div>
         <span>1. CNN의 뜻은?</span>
