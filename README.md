@@ -1,16 +1,16 @@
 # MlVis
 
-This project is a Pusan National University 2020 Graduation Assignment made by '머신중헌디'
+This project is a Pusan National University 2020 Graduation Assignment made by '머신중헌디'.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.12.
 
 ## Pre Requirements
 
-Download node.js and npm update
+Download node.js and npm update.
 
 Go to "https://nodejs.org/en/download/".
 
-Download the Node.js source code or a pre-built installer for your platform
+Download the Node.js source code or a pre-built installer for your platform.
 
 ## Install Angular CLI
 
