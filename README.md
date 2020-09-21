@@ -7,7 +7,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Pre Requirements
 
 Download node.js and npm update
+
 Go to "https://nodejs.org/en/download/".
+
 Download the Node.js source code or a pre-built installer for your platform
 
 ## Install Angular CLI
