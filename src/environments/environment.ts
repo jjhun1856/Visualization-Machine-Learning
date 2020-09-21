@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://35.173.229.205:5000',
-  appBaseUrl: 'http://35.173.229.205'
+  apiBaseUrl: 'http://3.81.108.154:5000',
+  appBaseUrl: 'http://3.81.108.154'
 };
 
 /*
