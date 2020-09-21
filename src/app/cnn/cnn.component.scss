@@ -54,49 +54,12 @@
     font-size: 28px;
   }
 
-  .btn-step {
-    margin-top: 8px;
+  .feature {
+    margin-left: 16%;
+    width: 48%;
 
-    & > * {
-      margin-left: 4px;
-    }
-
-    & > *:nth-child(4) {
-      margin-left: 204px;
-    }
-
-    & > *:last-child {
-      margin-left: 40px;
-    }
-
-    div {
-      & > *:last-child {
-        margin-top: 4px;
-      }
-
-      div > div:first-child {
-        & > *:not(:first-child) {
-          margin-top: 4px;
-        }
-      }
-
-      div:not(:first-child) {
-        margin-left: 4px;
-      }
-
-      div:nth-child(2) {
-        margin-top: unset !important;
-        button {
-          margin-top: unset !important;
-        }
-      }
-
-      div:nth-child(3) {
-        margin-top: unset !important;
-        button {
-          margin-top: unset !important;
-        }
-      }
+    span {
+      flex: 1;
     }
   }
 }

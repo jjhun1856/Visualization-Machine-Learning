@@ -41,5 +41,13 @@ mat-radio-group {
 }
 
 .score {
+  input {
+    color: red;
+    font-weight: bold;
+  }
 
+  ::ng-deep .mat-radio-button.mat-radio-checked.mat-radio-disabled.mat-accent .mat-radio-label-content {
+    color: red;
+    font-weight: bold;
+  }
 }

@@ -39,36 +39,25 @@
         <div>
             <h2>3. 시각화 : </h2>
             <div class="flowchart" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-                <div fxLayout="column">
+                <div fxLayout="column" fxLayoutGap="16px">
                     <img src="assets/result-img/cnn/CNN.png"/>
 
-                    <div class="btn-step" fxLayout="row">
-                        <button (click)="OpenDetailDialog(1)">Input</button>
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <span (click)="OpenDetailDialog(1)">Input</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span (click)="OpenDetailDialog(2)">Convolution</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span (click)="OpenDetailDialog(4)">Relu</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span (click)="OpenDetailDialog(5)">Pooling</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span (click)="OpenDetailDialog(7)">Flatten</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                        <span (click)="OpenDetailDialog(8)">Softmax</span>
+                    </div>
 
-                        <div fxLayout="column">
-                            <div fxLayout="row">
-                                <div fxLayout="column">
-                                    <button (click)="OpenDetailDialog(2)">Convolution</button>
-                                    <button style="opacity: 0;" ></button>
-                                </div>
-
-                                <div fxLayout="column">
-                                    <button (click)="OpenDetailDialog(4)">Relu</button>
-                                </div>
-
-                                <div fxLayout="column">
-                                    <button (click)="OpenDetailDialog(5)">Pooling</button>
-                                </div>
-                            </div>
-
-                            <button (click)="OpenDetailDialog(6)">Feature Extraction</button>
-                        </div>
-
-                        <button style="opacity: 0;" ></button>
-
-                        <button (click)="OpenDetailDialog(7)">Flatten</button>
-
-                        <button (click)="OpenDetailDialog(8)">Softmax</button>
+                    <div class="feature" fxLayout="row">
+                        <span (click)="OpenDetailDialog(6)">Feature Extraction</span>
                     </div>
                 </div>
             </div>
