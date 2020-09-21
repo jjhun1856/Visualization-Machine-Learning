@@ -1,5 +1,7 @@
 # MlVis
 
+This project is a Pusan National University 2020 Graduation Assignment made by '머신중헌디'
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-rc.12.
 
 ## Pre Requirements
