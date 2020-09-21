@@ -15,7 +15,8 @@ Download the Node.js source code or a pre-built installer for your platform
 ## Run this project
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-or `ng serve --open` 
+
+or just `ng serve --open` 
 
 ## Build
 
