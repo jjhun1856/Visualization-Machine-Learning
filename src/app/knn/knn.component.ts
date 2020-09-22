@@ -69,7 +69,7 @@ export class KnnComponent implements OnInit {
             case 4: {
                 data = {
                     step: 'Step4. 선택된 값 중 다수 값으로 분류',
-                    image: [`${environment.appBaseUrl}/5.png`],
+                    image: [`${environment.appBaseUrl}/2.png`, `${environment.appBaseUrl}/5.png`],
                     pseudoCode: '<div><span>Input: X,Y, K // X: training data, Y: class labels of X, K: parameter</span><span>for i = 1, ∈ Xi do</span><span>&nbsp;&nbsp;&nbsp;&nbsp;Compute distance d(Xi, x)</span><span>end for</span><span>Compute Set I containing indices for the K smallest distances d(Xi, x)</span><span class="current-step">return majority label for {Yi where i ∈ I}</span></div>'
                 }
                 break;
