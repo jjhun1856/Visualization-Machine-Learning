@@ -33,6 +33,12 @@
 
         <div>
             <h2>3. 흐름도 및 시각화</h2>
+
+            <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="12px">
+                <img src="assets/result-img/knn/KNN_1.png"/>
+            </div>
+
+
             <div *ngIf="!selectData" class="data-select" fxLayout="row" fxLayoutAlign="center center"
                  fxLayoutGap="12px">
                 <input matInput type="number" placeholder="k값 입력" [(ngModel)]="k"/>
